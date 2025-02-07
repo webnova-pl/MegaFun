@@ -7,7 +7,6 @@ export default function Home() {
 		<main className="">
 			<HeroSection></HeroSection>
 			<AboutSection></AboutSection>
-			<HeroSection></HeroSection>
 			<RentSection />
 			<ContactSection />
 		</main>

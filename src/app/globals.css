@@ -9,13 +9,13 @@ body {
 @layer base {
 
   h2 {
-    @apply text-5xl text-primaryc font-bold uppercase leading-[5rem]
+    @apply lg:text-5xl text-primaryc font-bold uppercase lg:leading-[5rem] leading-[3rem] text-3xl
   }
 
   strong {
     @apply text-white bg-primaryc p-2
   }
-  
+
 	:root {
 		--primaryc: #ff4219;
 		--gray: #5e5e5e;
@@ -35,6 +35,12 @@ body {
 			1px 1px 2px 0px #ffffff4d inset,
 			27px 27px 68px 0px #dbdbdbe5,
 			-27px -27px 54px 0px #ffffffe5,
+			27px -27px 54px 0px #dbdbdb33,
+			-27px 27px 54px 0px #dbdbdb33;
+	}
+
+  .shadow-custom--outside-only {
+		box-shadow:
 			27px -27px 54px 0px #dbdbdb33,
 			-27px 27px 54px 0px #dbdbdb33;
 	}
