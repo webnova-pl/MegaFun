@@ -19,6 +19,10 @@ export default {
 				primaryc: "var(--primaryc)",
 				background: "var(--background)",
 				foreground: "var(--foreground)",
+				gray: "var(--gray)",
+			},
+			boxShadow: {
+				footer: "0px -7px 20.9px 0px rgba(0, 0, 0, 0.25)",
 			},
 		},
 	},
