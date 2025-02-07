@@ -1,0 +1,30 @@
+.icon_wr {
+  svg {
+    width: 30px;
+    height: 30px;
+    fill: white;
+
+    path {
+      fill: white;
+    }
+  }
+}
+
+.nav {
+  &:before {
+    background: var(--primaryc);
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -100;
+  }
+}
+
+.header {
+  width: 100%;
+
+
+}
