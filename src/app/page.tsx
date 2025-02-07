@@ -7,8 +7,8 @@ export default function Home() {
 	return (
 		<main className="">
 			<HeroSection />
-			<AboutSection />
 			<OfferSection />
+			<AboutSection />
 			<RentSection />
 			<ContactSection />
 		</main>
