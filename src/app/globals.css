@@ -7,35 +7,34 @@ body {
 }
 
 @layer base {
+	h2 {
+		@apply text-primaryc text-5xl font-bold uppercase leading-[5rem];
+	}
 
-  h2 {
-    @apply text-5xl text-primaryc font-bold uppercase leading-[5rem]
-  }
+	strong {
+		@apply bg-primaryc p-2 text-white;
+	}
 
-  strong {
-    @apply text-white bg-primaryc p-2
-  }
-  
 	:root {
 		--primaryc: #ff4219;
 		--gray: #5e5e5e;
 	}
 
+	h2 {
+		@apply text-6xl font-bold;
+	}
+
 	h3 {
-		@apply text-5xl font-semibold;
+		@apply text-5xl font-bold;
 	}
 
 	p {
-		@apply text-base;
+		@apply text-xl;
 	}
 
 	.shadow-custom {
 		box-shadow:
-			-1px -1px 2px 0px #dbdbdb80 inset,
-			1px 1px 2px 0px #ffffff4d inset,
-			27px 27px 68px 0px #dbdbdbe5,
-			-27px -27px 54px 0px #ffffffe5,
-			27px -27px 54px 0px #dbdbdb33,
-			-27px 27px 54px 0px #dbdbdb33;
+			20px 20px 60px #bebebe,
+			-20px -20px 60px #ffffff;
 	}
 }
