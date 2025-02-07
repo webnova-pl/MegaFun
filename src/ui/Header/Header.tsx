@@ -72,7 +72,7 @@ export default function Header() {
 						</Link>
 					</div>
 					<div className="mt-16 flex justify-center lg:flex-1">
-						<Link href={links.homePage} className="bg-primaryc rounded-[50%] p-1.5 text-white">
+						<Link href={links.homePage} className="bg-primaryc -mt-4 px-6 rounded-[50%] p-1.5 text-white">
 							<Image src={logo} className="h-32 w-48 pb-2" alt="logo" />
 						</Link>
 					</div>

@@ -1,8 +1,10 @@
+import AboutSection from "@/sections/AboutSection/AboutSection";
 import HeroSection from "../sections/HeroSection/HeroSection";
 export default function Home() {
 	return (
 		<main className="">
-			<HeroSection text="Mega Fun - dmuchańce które rozkręcą każdą impreze"></HeroSection>
+			<HeroSection></HeroSection>
+			<AboutSection></AboutSection>
 		</main>
 	);
 }

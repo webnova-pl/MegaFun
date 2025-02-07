@@ -2,17 +2,17 @@ import { links } from "@/constants";
 import Link from "next/link";
 import { FC } from "react";
 import HeroImg from "./elements/HeroImg";
+import Ballons from "@/components/Ballons";
+import ArrowButton from "@/ui/Buttons/ArrowButton";
 
 interface IHeroSection {
-  text: string;
   showButtons?: boolean;
   showImg?: boolean;
 }
 
 const HeroSection: FC<IHeroSection> = ({
   showButtons = true,
-  text,
-  showImg = true,
+  showImg = true
 }) => {
   return (
     <section
@@ -22,31 +22,35 @@ const HeroSection: FC<IHeroSection> = ({
       <div
         className={`h-[89vh] flex-col absolute inset-0 flex items-center justify-center px-8`}
       >
+  
         <h1
-          className={`text-4xl text-center lg:text-7xl font-extrabold lg:tracking-widest text-white tracking-wide`}
+          className={`text-4xl max-sm:bg-red-400 text-center lg:text-7xl font-extrabold lg:tracking-widest text-white tracking-wide`}
         >
-          {text}
+          Mega Fun <br /> <span className="text-4xl"> Dmuchańce które rozkręcą każdą impreze</span>
         </h1>
         {showButtons ? (
           <div className="flex text-white flex-col lg:flex-row items-center justify-center text-xl mt-8">
             <Link
-              href={links.attractions}
-              className="bg-gradient-to-r from-[#FF3E27] to-[#FF3061] py-2 px-10 rounded-full shadow-on-hover"
-            >
-              Atrakcje
-            </Link>
-            <Link
               href={links.pricelist}
-              className="mt-4 lg:mt-0 lg:ml-12 color-on-hover"
+
             >
               Cennik
+            </Link>
+            <Link
+              className="mt-4 lg:mt-0 lg:ml-12"
+              href={links.attractions}
+            >
+              <ArrowButton>Galeria zdjec</ArrowButton>
             </Link>
           </div>
         ) : (
           ""
         )}
       </div>
+      <Ballons className="absolute top-16 left-32 w-1/4"></Ballons>
+      <Ballons className="absolute top-16 right-32 w-1/4"></Ballons>
     </section>
+
   );
 };
 

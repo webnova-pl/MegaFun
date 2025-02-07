@@ -10,4 +10,12 @@ body {
   :root {
     --primaryc: #FF4219;
   }
+
+  h2 {
+    @apply text-5xl text-primaryc font-bold uppercase leading-[5rem]
+  }
+
+  strong {
+    @apply text-white bg-primaryc p-2
+  }
 }
