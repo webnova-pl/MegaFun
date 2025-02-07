@@ -3,12 +3,6 @@ import forms from "@tailwindcss/forms";
 import typography from "@tailwindcss/typography";
 
 export default {
-	content: [
-		"./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-		"./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-		"./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-		"./src/**/*.{js,ts,jsx,tsx,mdx}",
-	],
 	theme: {
 		container: {
 			center: true,
@@ -16,6 +10,7 @@ export default {
 		},
 		extend: {
 			colors: {
+				primaryc: "var(--primaryc)",
 				background: "var(--background)",
 				foreground: "var(--foreground)",
 			},
