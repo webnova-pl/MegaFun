@@ -6,7 +6,7 @@ import CtaCallButton from "@/ui/CtaCallButton/CtaCallButton";
 
 const ContactSection = () => {
 	return (
-		<section className="bg-primaryc mt-20 rounded-t-[5rem] py-20 text-white">
+		<section className="bg-primaryc rounded-t-[5rem] py-20 pt-40 text-white">
 			<div className="container flex flex-col justify-center space-y-10">
 				<div className="flex flex-col md:flex-row">
 					<div className="flex flex-col items-start space-y-8">

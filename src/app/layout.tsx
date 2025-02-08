@@ -3,6 +3,7 @@ import Header from "@/ui/Header/Header";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import ContactSection from "@/sections/ContactSection/ContactSection";
 
 const popins = Poppins({
 	subsets: ["latin"],
@@ -21,9 +22,10 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="pl" suppressHydrationWarning>
-			<body className={`${popins.className} m-0 p-0 antialiased`}>
+			<body className={`${popins.className} m-0 overflow-x-hidden bg-[#FAFAFA] p-0`}>
 				<Header />
 				{children}
+				<ContactSection />
 				<Footer />
 			</body>
 		</html>

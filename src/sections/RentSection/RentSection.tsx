@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const RentSection = () => {
 	return (
-		<section className="container max-w-7xl py-20">
+		<section className="container relative z-10 -mb-20 -mt-20 max-w-7xl rounded-[5rem] bg-white px-20 py-20 shadow-md">
 			<h2 className="mb-20 text-center">Dlaczego warto wybrać Mega Fun?</h2>
 			<div className="flex flex-col py-28 md:flex-row">
 				<div className="flex-1">

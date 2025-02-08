@@ -25,7 +25,7 @@ body {
 	}
 
 	p {
-		@apply text-xl;
+		@apply text-lg;
 	}
 
 	.shadow-custom {

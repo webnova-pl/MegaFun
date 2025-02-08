@@ -1,6 +1,6 @@
 import { client } from "./sanity";
 
-export async function getAttraction() {
+export async function getAttraction(params?: { slug: string }) {
 	const query = `*[_type == "attraction"]{
             _id,
             name,
@@ -10,7 +10,7 @@ export async function getAttraction() {
             mainImage
             }`;
 
-	const data = await client.fetch(query, {});
+	const data = await client.fetch(query, params);
 
 	return data;
 }
