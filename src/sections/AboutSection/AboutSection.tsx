@@ -44,21 +44,19 @@ const AboutSection = () => {
 							src={slide}
 							width={500}
 							height={500}
-							className="object-cover object-center"
+							className="object-cover object-center drop-shadow-2xl"
 						/>
 					</div>
-					<div className="lg:-mt-16 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
+					<div className="xl:-mt-16 grid grid-cols-1 gap-4 md:grid-cols-2">
 						{items.map((item, idx) => (
 							<div
-								className="relative aspect-square h-full rounded-[2rem] "
+								className="relative  h-full group rounded-3xl shadow-2xl justify-start  bottom-0 left-0 right-0 top-0 flex flex-col shadow-custom--outside-only transition-all hover:bg-primaryc p-6 text-primaryc hover:text-white"
 								key={item.id}
 								data-aos="fade-up"
 								data-aos-delay={idx * 100}
 							>
-								<div className="group absolute rounded-3xl shadow-2xl justify-start  bottom-0 left-0 right-0 top-0 flex flex-col shadow-custom--outside-only transition-all bg-white hover:bg-primaryc p-6 text-primaryc hover:text-white">
-									<h4 className="mb-4 flex space-x-2 text-2xl font-bold ">{item.title}</h4>
-									<p className="group-hover:text-white text-gray">{item.desc}</p>
-								</div>
+									<h4 className="mb-4 flex space-x-2 xl:text-2xl text-lg font-bold">{item.title}</h4>
+									<p className="group-hover:text-white text-gray text-base">{item.desc}</p>
 							</div>
 						))}
 					</div>

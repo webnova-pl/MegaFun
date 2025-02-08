@@ -13,7 +13,7 @@ const HeroImg: FC<IHeroImg> = ({ bigImg }) => {
       src={heroImg}
       priority
       className={`${
-        bigImg ? "h-[95vh]" : "h-[95vh]"
+        bigImg ? "h-[90vh]" : "h-[90vh]"
       } w-full z-30 object-cover object-center brightness-[.3]`}
     />
   );

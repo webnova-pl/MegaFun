@@ -1,6 +1,6 @@
 "use client";
 import Lottie from "lottie-react";
-import animationData from "@/assets/ballons.json"; // Adjust path if needed
+import animationData from "@/assets/ballons.json";
 
 const LottieAnimation = (props: React.HTMLAttributes<HTMLDivElement>) => {
   return (
