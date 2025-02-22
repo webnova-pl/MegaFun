@@ -1,10 +1,11 @@
 import React from "react";
 
-const CtaCallButton = () => {
+const CtaCallButton = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
 	return (
 		<a
 			href=""
-			className="text-primaryc animate-bounce rounded-md bg-white px-4 py-2 transition-colors hover:bg-white/90"
+			className="animate-bounce rounded-md bg-white px-4 py-2 text-primaryc transition-colors hover:bg-white/90"
+			{...props}
 		>
 			Zadzwoń i zarezerwuj
 		</a>

@@ -10,7 +10,7 @@ const OfferSection = async () => {
 	const data: AttractionType[] = await getAttraction();
 
 	return (
-		<section className="bg-primaryc rounded-[5rem] py-20 pb-40 text-white">
+		<section className="rounded-[5rem] bg-primaryc py-20 pb-40 text-white">
 			<div className="container">
 				<h2 className="mb-6 text-center text-white">Z nami nuda nie ma szans!</h2>
 				<p className="mx-auto max-w-4xl text-center">
@@ -30,8 +30,8 @@ const OfferSection = async () => {
 								height={1000}
 								className="-mt-32 max-w-[300px]"
 							/>
-							<h4 className="text-primaryc mb-10 text-center text-3xl font-bold">{item.name}</h4>
-							<p className="text-gray mb-10 text-center text-lg">{item.description}</p>
+							<h4 className="mb-10 text-center text-3xl font-bold text-primaryc">{item.name}</h4>
+							<p className="mb-10 text-center text-lg text-gray">{item.shortDescription}</p>
 							{/* <Link
 								href={`${links.attractions}/${item.slug.current}`}
 								className="bg-primaryc mt-auto w-full rounded-full py-4 text-center text-xl text-white"
@@ -52,7 +52,7 @@ const OfferSection = async () => {
 				<div className="mt-10 flex justify-center">
 					<Link
 						href={links.attractions}
-						className="text-primaryc inline-block bg-white px-8 py-4 text-xl font-bold"
+						className="inline-block bg-white px-8 py-4 text-xl font-bold text-primaryc"
 					>
 						Zobacz wszystkie atrakcje
 					</Link>
