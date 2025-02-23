@@ -4,6 +4,9 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import ContactSection from "@/sections/ContactSection/ContactSection";
+import { AOSInit } from "@/plugins/aos";
+import { FacebookIcon, InstaIcon } from "../ui/Icons/icons";
+import { links } from "@/constants";
 
 const popins = Poppins({
 	subsets: ["latin"],
@@ -22,11 +25,28 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="pl" suppressHydrationWarning>
+			<AOSInit />
 			<body className={`${popins.className} m-0 overflow-x-hidden bg-[#FAFAFA] p-0`}>
 				<Header />
 				{children}
 				<ContactSection />
 				<Footer />
+				<div className="fixed bottom-4 right-2 z-30 flex flex-col gap-4">
+					<a
+						href={links.instagram}
+						target="_blank"
+						className="flex items-center justify-center rounded-full bg-primaryc p-4 shadow-lg"
+					>
+						<InstaIcon />
+					</a>
+					<a
+						href={links.facebook}
+						target="_blank"
+						className="flex items-center justify-center rounded-full bg-primaryc p-4 shadow-lg"
+					>
+						<FacebookIcon />
+					</a>
+				</div>
 			</body>
 		</html>
 	);

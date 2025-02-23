@@ -6,7 +6,7 @@ import CtaCallButton from "@/ui/CtaCallButton/CtaCallButton";
 
 const ContactSection = () => {
 	return (
-		<section className="bg-primaryc rounded-t-[5rem] py-20 pt-40 text-white">
+		<section className="rounded-t-[5rem] bg-primaryc py-20 pt-40 text-white">
 			<div className="container flex flex-col justify-center space-y-10">
 				<div className="flex flex-col md:flex-row">
 					<div className="flex flex-col items-start space-y-8">
@@ -19,7 +19,13 @@ const ContactSection = () => {
 					</div>
 				</div>
 
-				<div className="flex flex-1 items-center justify-between space-y-4">
+				<div className="flex flex-1 flex-col items-center justify-between space-y-4 md:flex-row">
+					<p className="flex items-center space-x-2 rounded-md px-4 py-2 text-white transition-transform hover:scale-105">
+						<span className="[&>svg>path]:fill-white">
+							<PhoneIcon />
+						</span>
+						<span>+48 662 712 418</span>
+					</p>
 					<a
 						className="flex items-center space-x-2"
 						target="_blank"
@@ -29,15 +35,6 @@ const ContactSection = () => {
 							<InstaIcon />
 						</span>
 						<span>Obserwuj nas na instagramie!</span>
-					</a>
-					<a
-						href="tel:+48662712418"
-						className="text-primaryc flex items-center space-x-2 rounded-md bg-white px-4 py-2 transition-transform hover:scale-105"
-					>
-						<span className="[&>svg>path]:fill-primaryc">
-							<PhoneIcon />
-						</span>
-						<span>+48 662 712 418</span>
 					</a>
 					<a
 						href="https://www.facebook.com/"

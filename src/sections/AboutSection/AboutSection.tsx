@@ -1,6 +1,8 @@
 import Image from "next/image";
 import img1 from "../../../public/wedding.webp";
-import slide from "../../../public/slide.png";
+import logo from "@public/logo-color.webp";
+
+import NumbersCounter from "../../components/NumbersCounter";
 
 const items = [
 	{
@@ -24,39 +26,55 @@ const items = [
 	{
 		id: 4,
 		title: "Imprezy firmowe",
-		desc: "Zorganizuj integracyjną imprezę firmową, która na długo zapadnie w pamięć Twoim pracownikom! Dmuchańce Mega Fun to doskonały sposób na budowanie zespołu, relaks i oderwanie od codziennych obowiązków. Zapewnij swoim pracownikom mnóstwo śmiechu i pozytywnej energii!",
+		desc: "Zorganizuj integracyjną imprezę firmową, która na długo zapadnie w pamięć Twoim pracownikom! Dmuchańce Mega Fun to doskonały sposób na budowanie zespołu, relaks i oderwanie od codziennych obowiązków. Zapewnij swoim pracownikom lub ich dzieciom mnóstwo śmiechu i pozytywnej energii!",
 		img: img1,
 	},
 ];
 
 const AboutSection = () => {
 	return (
-		<section className="py-32">
-			<div className="container mt-16">
-				<div className="grid xl:grid-cols-2 grid-cols-1 ">
-					<div className="flex justify-center flex-col items-center">
-						<h2 className="mb-4" data-aos="fade-up" data-aos-offset="200">
-							Świetne <strong>Atrakcje</strong>
-							<br /> Na różne okazje
+		<section className="py-16 md:py-32 bg-contain bg-no-repeat z-30 bg-[url('/decoration.svg')] md:pt-48 ">
+			<div className="container flex flex-col items-center">
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+					<div className="item mt-8 flex max-w-[35rem] flex-col text-xl md:py-16">
+						<h2 className="text mb-4 text-left text-4xl leading-[3.5rem]" data-aos="fade-up">
+							 O Nas
 						</h2>
-						<Image
-							alt=""
-							src={slide}
-							width={500}
-							height={500}
-							className="object-cover object-center drop-shadow-2xl"
-						/>
+						<p className="text-xl" data-aos="fade-up">
+							Jesteśmy firmą, która z pasją dostarcza najlepsze dmuchane atrakcje na wszelkiego
+							rodzaju eventy – od urodzin i festynów po duże wydarzenia plenerowe. Naszym celem jest
+							zapewnienie maksymalnej radości i bezpieczeństwa, dlatego oferujemy wyłącznie wysokiej
+							jakości dmuchane place zabaw, zjeżdżalnie i tory przeszkód, które spełniają najwyższe
+							standardy. Dzięki wieloletniemu doświadczeniu wiemy, jak stworzyć niezapomniane chwile
+							dla dzieci i dorosłych.
+						</p>
+						<NumbersCounter />
 					</div>
-					<div className="xl:-mt-16 grid grid-cols-1 gap-4 md:grid-cols-2">
+					<Image
+						alt="Logo Mega Fun"
+						src={logo}
+						width={500}
+						height={500}
+						className="object-cover object-center drop-shadow-2xl"
+					/>
+				</div>
+			</div>
+
+			<div className="container">
+				<h2 className="text my-12 mb-16 text-center text-4xl text-primaryc mt-16" data-aos="fade-up">
+					Z nami twoje wydarzenie zapadnie w pamięci
+				</h2>
+				<div className="grid grid-cols-1 py-12">
+					<div className="grid grid-cols-1 gap-4 lg:grid-cols-4">
 						{items.map((item, idx) => (
 							<div
-								className="relative  h-full group rounded-3xl shadow-2xl justify-start  bottom-0 left-0 right-0 top-0 flex flex-col shadow-custom--outside-only transition-all hover:bg-primaryc p-6 text-primaryc hover:text-white"
+								className="transition-duration-[2s] group relative bottom-0 left-0 right-0 top-0 flex h-full flex-col justify-start rounded-3xl bg-white p-6 text-primaryc shadow-xl transition-all hover:bg-primaryc hover:text-white"
 								key={item.id}
 								data-aos="fade-up"
 								data-aos-delay={idx * 100}
 							>
-									<h4 className="mb-4 flex space-x-2 xl:text-2xl text-lg font-bold">{item.title}</h4>
-									<p className="group-hover:text-white text-gray text-base">{item.desc}</p>
+								<h4 className="mb-4 flex space-x-2 text-lg font-bold xl:text-2xl">{item.title}</h4>
+								<p className="text-base text-gray group-hover:text-white">{item.desc}</p>
 							</div>
 						))}
 					</div>

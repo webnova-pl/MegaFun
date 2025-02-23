@@ -9,7 +9,7 @@ interface IHeroImg {
 const HeroImg: FC<IHeroImg> = ({ bigImg }) => {
   return (
     <Image
-      alt="hero img"
+      alt="Dmuchane zjeżdżalnie"
       src={heroImg}
       priority
       className={`${

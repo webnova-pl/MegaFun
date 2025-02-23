@@ -4,7 +4,6 @@ import { FC } from "react";
 import HeroImg from "./elements/HeroImg";
 import Ballons from "@/components/Ballons";
 import ArrowButton from "@/ui/Buttons/ArrowButton";
-import { Delivery } from "../../ui/Icons/icons";
 
 interface IHeroSection {
 	showButtons?: boolean;
@@ -20,17 +19,17 @@ const HeroSection: FC<IHeroSection> = ({ showButtons = true, showImg = true }) =
 				<div
 					className={`absolute inset-0 flex h-[85vh] w-screen flex-col items-center justify-center px-8`}
 				>
-					<h1
-						className={`text-bold z-40 text-center text-4xl font-extrabold text-white lg:text-7xl lg:tracking-wide`}
+					<h1 data-aos="fade-up"
+						className={`text-bold z-40 text-center text-5xl font-bold text-white lg:text-7xl lg:tracking-wide`}
 					>
 						MEGA FUN <br />{" "}
-						<span className="text-2xl lg:text-4xl"> Dmuchańce które rozkręcą każdą impreze</span>
+						<span data-aos="fade-up" data-aos-delay="300" className="text-2xl lg:text-4xl"> Dmuchańce które rozkręcą każdą impreze</span>
 					</h1>
 
 					{showButtons ? (
-						<div className="z-40 mt-8 flex flex-col items-center justify-center text-xl text-white lg:flex-row">
-							<Link href={links.pricelist}>Galeria zdjęć</Link>
-							<Link className="mt-4 lg:ml-12 lg:mt-0" href={links.attractions}>
+						<div className="z-40 mt-8 flex items-center justify-center text-xl gap-4 text-white lg:flex-row">
+							<Link data-aos="fade-up" data-aos-delay="400" href={links.pricelist}>Galeria zdjęć</Link>
+							<Link data-aos="fade-up" data-aos-delay="600" className=" lg:ml-12 lg:mt-0" href={links.attractions}>
 								<ArrowButton>Zobacz oferte</ArrowButton>
 							</Link>
 						</div>

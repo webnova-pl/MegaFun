@@ -8,7 +8,7 @@ export default function Home() {
 		<main className="">
 			<HeroSection />
 			<AboutSection />
-			<DeliverySection />
+			{/* <DeliverySection /> */}
 			<OfferSection />
 			<RentSection />
 		</main>

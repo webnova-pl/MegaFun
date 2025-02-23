@@ -33,21 +33,13 @@ export default function Header() {
 		setMobileMenuOpen(!mobileMenuOpen);
 	};
 
-	// useEffect(() => {
-	//   window.addEventListener("scroll", changeHeader);
-
-	//   return window.removeEventListener("scroll", changeHeader);
-	// }, []);
-
-	// window.addEventListener("scroll", changeHeader);
-
 	useEffect(() => {
 		setMobileMenuOpen(false);
 	}, [pathname]);
 
 	return (
 		<header
-			className={`bg-primary fixed top-0 z-40 h-20 w-full rounded-b-full transition-all shadow-2xl ${styles.header}`}
+			className={`bg-primary fixed top-0 z-40 h-20 px-4 w-screen transition-all shadow-2xl ${styles.header}`}
 		>
 			<nav
 				className={`mx-auto flex h-full max-w-5xl items-center justify-between p-6 lg:px-0 lg:py-0 ${styles.nav}`}
@@ -55,10 +47,10 @@ export default function Header() {
 			>
         <div className="flex lg:flex-1 lg:hidden">
           <Link href={links.homePage} className="-m-1.5 text-white">
-            <Image src={logo} className="h-18 w-28" alt="logo" />
+            <Image src={logo} className="h-18 w-28" alt="Logo Dmuchańce Mega Fun" />
           </Link>
         </div>
-				<div className="flex lg:hidden">
+				<div className="flex lg:hidden ">
 					<Burger open={mobileMenuOpen} onClick={handleOpenMenu} />
 				</div>
 				<div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:gap-x-12">
@@ -95,27 +87,6 @@ export default function Header() {
 						>
 							Skontaktuj się
 						</span>
-						<div className={`${styles.icon_wr} flex gap-4`}>
-							<Link
-								href={links.facebook}
-								target="_blank"
-								className="hover:text-secondaryc -mx-3 block rounded-lg px-3 py-2 text-2xl font-semibold leading-7 text-white"
-							>
-								<FacebookIcon />
-							</Link>
-							<Link
-								href={links.instagram}
-								target="_blank"
-								className="hover:text-secondaryc -mx-3 block rounded-lg px-3 py-2 text-2xl font-semibold leading-7 text-white"
-							>
-								<InstaIcon />
-							</Link>
-							<Link
-								href={links.youtube}
-								target="_blank"
-								className="color-on-hover hover:text-secondaryc -mx-3 block rounded-lg px-3 py-2 text-2xl font-semibold leading-7 text-white"
-							></Link>
-						</div>
 					</div>
 				</div>
 			</nav>
