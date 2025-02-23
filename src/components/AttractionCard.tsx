@@ -1,3 +1,4 @@
+import { urlFor } from "@/lib/sanity";
 import { AttractionType } from "@/types";
 import ArrowButtonLink from "@/ui/Buttons/ArrowButtonLink";
 
@@ -7,7 +8,7 @@ const AttractionCard: React.FC<{ attraction: AttractionType }> = ({ attraction }
 			className="relative h-[40rem] overflow-hidden border-8 bg-cover bg-center p-4 shadow-md rounded-[2rem]"
 			style={{
 				backgroundImage: attraction.name
-					? `linear-gradient(#202020cc,#30303000 40%,#30303000 70%, #202020cc), url(${attraction.mainImage})`
+					? `linear-gradient(#202020cc,#30303000 40%,#30303000 70%, #202020cc), url(${urlFor(attraction.mainImage).url()})`
 					: "none",
 			}}
 		>
