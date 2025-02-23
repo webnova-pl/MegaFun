@@ -5,9 +5,30 @@ export async function getAttraction(params?: { slug: string }) {
             _id,
             name,
             slug,
-            description,
+            shortDescription,
             price,
             mainImage
+            }`;
+
+	const data = await client.fetch(query, params);
+
+	return data;
+}
+
+export async function getSingleAttraction(params: { slug: string }) {
+	const query = `*[_type == "attraction" && slug.current == $slug][0]{
+            _id,
+            name,
+            slug,
+		description[],
+            price,
+            mainImage,
+            gallery[] {
+			asset -> {
+				_id,
+				url
+			}
+		}
             }`;
 
 	const data = await client.fetch(query, params);
