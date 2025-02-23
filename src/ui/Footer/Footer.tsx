@@ -3,7 +3,7 @@ import React from "react";
 
 const Footer = () => {
 	return (
-		<footer className="shadow-footer flex min-h-20 items-center rounded-container -mt-4 bg-white">
+		<footer className="shadow-footer flex min-h-20 items-center rounded-t-[2rem] -mt-8 bg-white">
 			<div className="container flex flex-col justify-between md:flex-row py-8">
 				<div className="flex gap-4 md:flex-row flex-col items-center">
 					<Link href="#">Galeria zdjęć</Link>
