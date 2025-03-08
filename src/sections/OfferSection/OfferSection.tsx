@@ -52,7 +52,7 @@ const OfferSection = async () => {
 						className="object-cover object-center drop-shadow-2xl"
 					/>
 				</div>
-				<div className="mt-16 lg:mt-4 flex flex-wrap items-center justify-center gap-16 text-center text-2xl font-semibold">
+				<div className="mt-16 flex flex-wrap items-center justify-center gap-16 text-center text-2xl font-semibold lg:mt-4">
 					<div className="flex flex-col items-center justify-center">
 						<div className="animate-bounceSlow">
 							<CandyIcon />
