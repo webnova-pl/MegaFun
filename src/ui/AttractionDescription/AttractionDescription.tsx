@@ -38,7 +38,7 @@ const AttractionDescription = ({ description, price }: AttractionDescriptionProp
 			}}
 		>
 			{/* <p>{attraction.description}</p> */}
-			<div className="prose text-black">
+			<div className="prose text-black [&_strong]:bg-transparent">
 				<PortableText value={description} />
 			</div>
 			<div className="mt-10 flex">

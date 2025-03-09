@@ -32,13 +32,13 @@ const AttractionPage = async ({ params }: PageProps) => {
 		<main className="">
 			<section className="rounded-b-[5rem] bg-primaryc pb-40 pt-52">
 				<div className="container text-3xl font-bold text-white lg:text-5xl">
-					<h1>{attraction.name}</h1>
+					<h1 className="text-center">{attraction.name}</h1>
 				</div>
 			</section>
-			<section className="relative z-10 -mb-20 -mt-20 max-w-7xl rounded-[5rem] bg-white py-20 shadow-md lg:container md:pl-20">
+			<section className="relative z-10 -mb-20 -mt-20 max-w-7xl rounded-[5rem] bg-white py-20 shadow-md lg:container max-lg:overflow-hidden max-lg:pb-0 md:pl-20">
 				<div className="flex flex-col max-lg:space-y-10 md:flex-row lg:space-x-10">
 					<AttractionDescription description={attraction.description} price={attraction.price} />
-					<div className="flex-1 overflow-hidden rounded-b-3xl">
+					<div className="flex-1 overflow-hidden lg:rounded-b-3xl">
 						<AttractionImages mainImage={attraction.mainImage} images={attraction.gallery} />
 					</div>
 				</div>
