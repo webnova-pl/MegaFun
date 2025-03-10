@@ -2,7 +2,7 @@
 import { links } from "@/constants";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Burger } from "../Burger/Burger";
 import { InstaIcon, FacebookIcon } from "@/ui/Icons/icons";
@@ -12,22 +12,7 @@ import CtaCallButton from "../CtaCallButton/CtaCallButton";
 
 export default function Header() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-	const router = useRouter();
 	const pathname = usePathname();
-
-	const scrollToSection = (sectionId: string) => {
-		const contactSection = document.getElementById(sectionId);
-
-		if (mobileMenuOpen) setMobileMenuOpen(false);
-
-		if (pathname !== links.homePage) {
-			router.push(`${links.homePage}#${sectionId}`);
-		} else {
-			if (contactSection) {
-				contactSection.scrollIntoView({ behavior: "smooth" });
-			}
-		}
-	};
 
 	const handleOpenMenu = () => {
 		setMobileMenuOpen(!mobileMenuOpen);
@@ -84,12 +69,12 @@ export default function Header() {
 						>
 							Atrakcje
 						</Link>
-						<span
-							onClick={() => scrollToSection("contact")}
+						<Link
+							href={links.contact}
 							className="shadow-on-hover text-md bg-secondaryc cursor-pointer whitespace-nowrap rounded-full px-4 py-2 font-semibold leading-6 tracking-wider text-white transition-all"
 						>
-							Skontaktuj się
-						</span>
+							Kontakt
+						</Link>
 					</div>
 				</div>
 			</nav>
