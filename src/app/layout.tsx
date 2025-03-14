@@ -1,12 +1,12 @@
+import AOSProvider from "@/components/AOSProvider";
+import { links } from "@/constants";
+import ContactSection from "@/sections/ContactSection/ContactSection";
 import Footer from "@/ui/Footer/Footer";
 import Header from "@/ui/Header/Header";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import "./globals.css";
-import ContactSection from "@/sections/ContactSection/ContactSection";
-import { AOSInit } from "@/plugins/aos";
 import { FacebookIcon, InstaIcon } from "../ui/Icons/icons";
-import { links } from "@/constants";
+import "./globals.css";
 
 const popins = Poppins({
 	subsets: ["latin"],
@@ -25,10 +25,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="pl" suppressHydrationWarning>
-			<AOSInit />
 			<body className={`${popins.className} m-0 overflow-x-hidden bg-[#FAFAFA] p-0`}>
 				<Header />
-				{children}
+				<AOSProvider>{children}</AOSProvider>
 				<ContactSection />
 				<Footer />
 				<div className="fixed bottom-4 right-2 z-30 flex flex-col gap-4">
