@@ -32,7 +32,7 @@ const HeroSection: FC<IHeroSection> = ({ showButtons = true, showImg = true }) =
 
 				{showButtons ? (
 					<div className="z-40 mt-8 flex items-center justify-center gap-4 text-xl text-white lg:flex-row">
-						<Link data-aos="fade-up" data-aos-delay="400" href={links.pricelist}>
+						<Link data-aos="fade-up" data-aos-delay="400" href={links.gallery}>
 							Galeria zdjęć
 						</Link>
 						<Link
