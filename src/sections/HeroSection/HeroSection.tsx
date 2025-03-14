@@ -1,3 +1,4 @@
+"use client";
 import { links } from "@/constants";
 import Link from "next/link";
 import { FC } from "react";
