@@ -1,10 +1,10 @@
-import { PageProps } from ".next/types/app/page";
-import { getSingleAttraction } from "@/lib/query";
-import { client } from "@/lib/sanity";
-import AttractionDescription from "@/ui/AttractionDescription/AttractionDescription";
-import AttractionImages from "@/ui/AttractionImages/AttractionImages";
-import { notFound } from "next/navigation";
-import { TypedObject } from "sanity";
+// import { PageProps } from ".next/types/app/page";
+// import { getSingleAttraction } from "@/lib/query";
+// import { client } from "@/lib/sanity";
+// import AttractionDescription from "@/ui/AttractionDescription/AttractionDescription";
+// import AttractionImages from "@/ui/AttractionImages/AttractionImages";
+// import { notFound } from "next/navigation";
+// import { TypedObject } from "sanity";
 
 // export async function generateStaticParams() {
 // 	const query = `*[_type == "attraction"]{ slug }`;
@@ -15,7 +15,7 @@ import { TypedObject } from "sanity";
 // 	}));
 // }
 
-const AttractionPage = async ({ params }: PageProps) => {
+const AttractionPage = async () => {
 	// const { slug } = await params;
 
 	// const attraction: {

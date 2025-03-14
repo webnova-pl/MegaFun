@@ -1,6 +1,6 @@
-import AttractionCard from "@/components/AttractionCard";
-import { getAttraction } from "@/lib/query";
-import { AttractionType } from "@/types";
+// import AttractionCard from "@/components/AttractionCard";
+// import { getAttraction } from "@/lib/query";
+// import { AttractionType } from "@/types";
 
 const AttractionsPage = async () => {
 	// const data: AttractionType[] = await getAttraction();
