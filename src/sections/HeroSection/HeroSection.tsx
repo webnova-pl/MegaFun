@@ -3,9 +3,7 @@ import Link from "next/link";
 import { FC } from "react";
 import HeroImg from "./elements/HeroImg";
 import ArrowButton from "@/ui/Buttons/ArrowButton";
-import dynamic from "next/dynamic";
-
-const Ballons = dynamic(() => import("@/components/Ballons"), { ssr: false });
+import Ballons from "@/components/Ballons";
 
 interface IHeroSection {
 	showButtons?: boolean;
@@ -50,8 +48,8 @@ const HeroSection: FC<IHeroSection> = ({ showButtons = true, showImg = true }) =
 					""
 				)}
 			</div>
-			<Ballons className="absolute bottom-0 left-0 w-full lg:w-2/5"></Ballons>
-			<Ballons className="absolute bottom-0 right-0 max-lg:hidden lg:w-2/5"></Ballons>
+			<Ballons className="absolute bottom-0 left-0 w-full lg:w-2/5" />
+			<Ballons className="absolute bottom-0 right-0 max-lg:hidden lg:w-2/5" />
 		</section>
 	);
 };
