@@ -21,7 +21,7 @@ const NumbersCounter = () => {
 				</div>
 				<div className="flex flex-col items-start justify-center">
 					<span className="text-primaryc">
-						{isInView ? <CountUp end={15} className="" duration={3} delay={0.5} /> : 0} 
+						{isInView ? <CountUp end={10} className="" duration={3} delay={0.5} /> : 0} +
 					</span>
 					<p>Różnych atrakcji</p>
 				</div>

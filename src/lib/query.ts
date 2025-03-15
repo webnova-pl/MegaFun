@@ -35,3 +35,19 @@ export async function getSingleAttraction(params: { slug: string }) {
 
 	return data;
 }
+
+
+export async function getMainPageAttractions() {
+	const query = `*[_type == "attraction" && showOnMainPage == true]{
+            _id,
+            name,
+            slug,
+            shortDescription,
+            price,
+            mainImage
+            }`;
+
+	const data = await client.fetch(query);
+
+	return data;
+}

@@ -1,5 +1,5 @@
 import { links } from "@/constants";
-import { getAttraction } from "@/lib/query";
+import { getMainPageAttractions } from "@/lib/query";
 import { AttractionType } from "@/types";
 import Link from "next/link";
 import AttractionsSlider from "../../components/AttractionsSlider";
@@ -14,7 +14,7 @@ import {
 } from "../../ui/Icons/icons";
 
 const OfferSection = async () => {
-	const data: AttractionType[] = await getAttraction();
+	const data: AttractionType[] = await getMainPageAttractions();
 
 	return (
 		<section className="rounded-container bg-primaryc py-20 pb-40 text-white">

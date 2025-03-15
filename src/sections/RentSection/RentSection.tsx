@@ -11,7 +11,7 @@ const RentSection = () => {
 			<div className="flex flex-col items-center gap-12 md:py-20 lg:flex-row">
 				<div className="flex-1" data-aos="fade-up" data-aos-offset="200">
 					<h3 className="leading-[3.5rem] text-primaryc">
-						<strong>Bezpieczeństwo</strong> <br /> Na pierwszym miejscu
+						<strong className="strong">Bezpieczeństwo</strong> <br /> Na pierwszym miejscu
 					</h3>
 					<p className="mt-10 max-w-[540px] text-xl text-gray">
 						Nasze zjeżdżalnie są wykonane z wysokiej jakości materiałów, spełniających normy
@@ -57,7 +57,7 @@ const RentSection = () => {
 						<div className="mb-12 max-w-[35rem] text-left text-xl text-gray" data-aos="fade-up">
 							<div className="mb-8 flex items-center gap-4">
 								<h3>
-									<strong> Dostawa GRATIS</strong>{" "}
+									<strong className="strong"> Dostawa GRATIS</strong>{" "}
 								</h3>
 							</div>
 							<p className="text-xl">
@@ -83,7 +83,7 @@ const RentSection = () => {
 					<strong>Prosty Wynajem</strong>
 				</h3>
 				<div
-					className="mt-20 grid grid-cols-1 grid-rows-2 gap-5 lg:grid-cols-3"
+					className="mt-10 grid grid-cols-1 grid-rows-2 gap-5 lg:grid-cols-3"
 				>
 					<div className="order-1 flex items-center lg:justify-end">
 						<div className="justify-center rounded-[48px] px-6 py-10 shadow-2xl transition-all hover:scale-[1.05] lg:max-w-[300px]">

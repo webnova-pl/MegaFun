@@ -64,7 +64,13 @@ export default {
         },
       ],
     }),
-
+    defineField({
+      name: 'showOnMainPage',
+      title: 'Show on Main Page',
+      type: 'boolean',
+      description: 'Check this box to display this attraction on the main page',
+      initialValue: false,
+    }),
     defineField({
       name: 'price',
       title: 'Price',

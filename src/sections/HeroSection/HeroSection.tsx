@@ -27,7 +27,7 @@ const HeroSection: FC<IHeroSection> = ({ showButtons = true, showImg = true }) =
 					</h1>
 
 					{showButtons ? (
-						<div className="z-40 mt-8 flex items-center justify-center text-xl gap-4 text-white lg:flex-row">
+						<div className="z-40 mt-8 flex items-center justify-center md:text-xl gap-4 text-white lg:flex-row">
 							<Link data-aos="fade-up" data-aos-delay="400" href={links.pricelist}>Galeria zdjęć</Link>
 							<Link data-aos="fade-up" data-aos-delay="600" className=" lg:ml-12 lg:mt-0" href={links.attractions}>
 								<ArrowButton>Zobacz oferte</ArrowButton>
