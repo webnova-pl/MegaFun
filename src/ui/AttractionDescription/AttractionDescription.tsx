@@ -1,4 +1,5 @@
 import { PortableText } from "next-sanity";
+import { useEffect, useRef, useState } from "react";
 import { TypedObject } from "sanity";
 import CtaCallButton from "../CtaCallButton/CtaCallButton";
 

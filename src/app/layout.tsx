@@ -1,3 +1,6 @@
+import AOSProvider from "@/components/AOSProvider";
+import { links } from "@/constants";
+import ContactSection from "@/sections/ContactSection/ContactSection";
 import Footer from "@/ui/Footer/Footer";
 import Header from "@/ui/Header/Header";
 import type { Metadata } from "next";
@@ -74,6 +77,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+<<<<<<< HEAD
   return (
     <html lang="pl" suppressHydrationWarning>
       <head>
@@ -108,3 +112,34 @@ export default function RootLayout({
     </html>
   );
 }
+=======
+	return (
+		<html lang="pl" suppressHydrationWarning>
+			<body className={`${popins.className} m-0 overflow-x-hidden bg-[#FAFAFA] p-0`}>
+				<AOSProvider>
+					<Header />
+					{children}
+					<ContactSection />
+					<Footer />
+					<div className="fixed bottom-4 right-2 z-30 flex flex-col gap-4">
+						<a
+							href={links.instagram}
+							target="_blank"
+							className="flex items-center justify-center rounded-full bg-primaryc p-4 shadow-lg"
+						>
+							<InstaIcon />
+						</a>
+						<a
+							href={links.facebook}
+							target="_blank"
+							className="flex items-center justify-center rounded-full bg-primaryc p-4 shadow-lg"
+						>
+							<FacebookIcon />
+						</a>
+					</div>
+				</AOSProvider>
+			</body>
+		</html>
+	);
+}
+>>>>>>> c8366114cc4000941da41574d483ff3d2551a106
