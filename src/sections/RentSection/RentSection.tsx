@@ -77,14 +77,11 @@ const RentSection = () => {
 					</div>
 				</div>
 			</div>
-			<div 					data-aos="fade-zoom-up"
-					data-aos-offset="200">
+			<div data-aos="fade-zoom-up" data-aos-offset="200">
 				<h3 className="relative z-10 pt-12 text-center text-primaryc">
 					<strong>Prosty Wynajem</strong>
 				</h3>
-				<div
-					className="mt-10 grid grid-cols-1 grid-rows-2 gap-5 lg:grid-cols-3"
-				>
+				<div className="mt-10 grid grid-cols-1 grid-rows-2 gap-5 lg:grid-cols-3">
 					<div className="order-1 flex items-center lg:justify-end">
 						<div className="justify-center rounded-[48px] px-6 py-10 shadow-2xl transition-all hover:scale-[1.05] lg:max-w-[300px]">
 							<h4 className="text-center text-2xl font-bold text-primaryc">Wybierz atrakcje</h4>
@@ -106,8 +103,8 @@ const RentSection = () => {
 						<div className="justify-center rounded-[48px] bg-primaryc px-6 py-10 transition-all hover:scale-[1.05] lg:max-w-[412px]">
 							<h4 className="text-center text-2xl font-bold text-white">Baw się dobrze</h4>
 							<p className="font-semi mt-6 text-center text-white">
-								W wybranym dniu dostarczymy dmuchańca pod twoje drzwi oraz zamontujemy. A po
-								wszystkim przyjedziemy go zdemonotwać i odebrać
+								W wybranym dniu dostarczymy dmuchańca pod Twoje drzwi, zamontujemy go, a po
+								wszystkim przyjedziemy, aby go zdemontować i odebrać.
 							</p>
 						</div>
 					</div>

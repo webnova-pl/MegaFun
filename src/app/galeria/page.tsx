@@ -12,13 +12,13 @@ export const metadata: Metadata = {
 	keywords:
 		"galeria dmuchańców, zdjęcia zamków dmuchanych, galeria zjeżdżalni dmuchanych, atrakcje dla dzieci zdjęcia",
 	alternates: {
-		canonical: "https://twojadomena.pl/galeria",
+		canonical: "https://dmuchancemegafun.pl/galeria",
 	},
 	openGraph: {
 		title: "Galeria Zdjęć Dmuchańców | Atrakcje na Imprezy Dziecięce",
 		description:
 			"Przeglądaj naszą bogatą galerię dmuchańców, zamków i zjeżdżalni dostępnych do wynajęcia na imprezy dla dzieci.",
-		url: "https://twojadomena.pl/galeria",
+		url: "https://dmuchancemegafun.pl/galeria",
 		siteName: "Dmuchańce na Imprezy",
 		locale: "pl_PL",
 		type: "website",

@@ -2,54 +2,63 @@
 import { Metadata } from "next";
 import { groq } from "next-sanity";
 import { client } from "@/lib/sanity";
-import { PortableText } from "@portabletext/react";
+import { PortableText, PortableTextMarkComponentProps, PortableTextReactComponents } from "@portabletext/react";
+import { TypedObject } from "sanity";
 
-export const metadata: Metadata = {
-	title: "Często Zadawane Pytania (FAQ) | Dmuchańce na Imprezy",
-	description:
-		"Znajdź odpowiedzi na najczęściej zadawane pytania dotyczące wynajmu dmuchańców, zamków i zjeżdżalni na imprezy dla dzieci i wydarzenia firmowe.",
-	keywords:
-		"dmuchańce faq, wynajem dmuchańców, zamki dmuchane, dmuchane zjeżdżalnie, imprezy dla dzieci, pytania o dmuchańce",
-	alternates: {
-		canonical: "https://twojadomena.pl/faq",
-	},
-	openGraph: {
-		title: "Często Zadawane Pytania (FAQ) | Dmuchańce na Imprezy",
-		description:
-			"Znajdź odpowiedzi na najczęściej zadawane pytania dotyczące wynajmu dmuchańców, zamków i zjeżdżalni na imprezy dla dzieci i wydarzenia firmowe.",
-		url: "https://twojadomena.pl/faq",
-		siteName: "Dmuchańce na Imprezy",
-		locale: "pl_PL",
-		type: "website",
-	},
-};
-
-const ptComponents = {
-	types: {
-		image: ({ value }: any) => {
-			return (
-				<img
-					className="my-8 max-w-full rounded-lg"
-					src={value.imageUrl}
-					alt={value.alt || "Zdjęcie FAQ"}
-				/>
-			);
-		},
-	},
-	marks: {
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		link: ({ children, value }: any) => {
-			const rel = !value.href.startsWith("/") ? "noreferrer noopener" : undefined;
-			return (
-				<a href={value.href} rel={rel} className="text-blue-600 hover:underline">
-					{children}
-				</a>
-			);
-		},
-	},
-};
-
-async function getFAQs() {
+// Define proper types for our FAQ data
+interface FAQ {
+	_id: string;
+	question: string;
+	answer: TypedObject | TypedObject[];
+	order: number;
+  }
+  
+  export const metadata: Metadata = {
+	  title: "Często Zadawane Pytania (FAQ) | Dmuchańce Mega Fun",
+	  description:
+		  "Znajdź odpowiedzi na najczęściej zadawane pytania dotyczące wynajmu dmuchańców, zamków i zjeżdżalni na imprezy dla dzieci i wydarzenia firmowe.",
+	  keywords:
+		  "dmuchańce faq, wynajem dmuchańców, zamki dmuchane, dmuchane zjeżdżalnie, imprezy dla dzieci, pytania o dmuchańce",
+	  alternates: {
+		  canonical: "https://dmuchancemegafun.pl/faq",
+	  },
+	  openGraph: {
+		  title: "Często Zadawane Pytania (FAQ) | Dmuchańce na Imprezy",
+		  description:
+			  "Znajdź odpowiedzi na najczęściej zadawane pytania dotyczące wynajmu dmuchańców, zamków i zjeżdżalni na imprezy dla dzieci i wydarzenia firmowe.",
+		  url: "https://dmuchancemegafun.pl/faq",
+		  siteName: "Dmuchańce na Imprezy",
+		  locale: "pl_PL",
+		  type: "website",
+	  },
+  };
+  
+  // Define the components with proper types
+  const ptComponents: Partial<PortableTextReactComponents> = {
+	  types: {
+		  image: ({ value }) => {
+			  return (
+				  <img
+					  className="my-8 max-w-full rounded-lg"
+					  src={value.imageUrl}
+					  alt={value.alt || "Zdjęcie FAQ"}
+				  />
+			  );
+		  },
+	  },
+	  marks: {
+		  link: ({ children, value }: PortableTextMarkComponentProps) => {
+			  const rel = !value?.href.startsWith("/") ? "noreferrer noopener" : undefined;
+			  return (
+				  <a href={value?.href} rel={rel} className="underline">
+					  {children}
+				  </a>
+			  );
+		  },
+	  },
+  };
+  
+async function getFAQs(): Promise<FAQ[]> {
 	return client.fetch(
 		groq`*[_type == "faq"] | order(order asc) {
       _id,
@@ -65,17 +74,17 @@ export default async function FAQPage() {
 
 	return (
 		<main className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-			<section className="rounded-container bg-primaryc pb-24 pt-48 text-white">
+			<section className="rounded-container bg-primary pb-24 pt-48 text-white">
 				<div className="container mx-auto px-4 text-center">
-					<h1 className="font-boldmd:text-5xl mb-4 text-4xl">Często Zadawane Pytania</h1>
-					<p className="text-gray-600 mx-auto max-w-3xl text-xl">
+					<h1 className="mb-4 text-4xl font-bold md:text-5xl">Często Zadawane Pytania</h1>
+					<p className="mx-auto max-w-3xl text-xl text-white/80">
 						Znajdź odpowiedzi na najczęściej zadawane pytania dotyczące naszych dmuchańców i usług.
 					</p>
 				</div>
 			</section>
 			<div className="container mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
 				<section className="space-y-6">
-					{faqs.map((faq: any) => (
+					{faqs.map((faq) => (
 						<div
 							key={faq._id}
 							className="overflow-hidden rounded-xl bg-white shadow-md transition-shadow duration-300 hover:shadow-lg"
@@ -117,33 +126,6 @@ export default async function FAQPage() {
 						Twoje pytania! Dane do kontaktu znajdziesz poniżej
 					</p>
 				</section>
-
-				{/* Schema.org structured data for FAQ */}
-				<script
-					type="application/ld+json"
-					dangerouslySetInnerHTML={{
-						__html: JSON.stringify({
-							"@context": "https://schema.org",
-							"@type": "FAQPage",
-							mainEntity: faqs.map((faq: any) => ({
-								"@type": "Question",
-								name: faq.question,
-								acceptedAnswer: {
-									"@type": "Answer",
-									text: faq.answer
-										.filter((block: any) => block._type === "block")
-										.map((block: any) =>
-											block.children
-												.filter((child: any) => child._type === "span")
-												.map((child: any) => child.text)
-												.join(""),
-										)
-										.join(" "),
-								},
-							})),
-						}),
-					}}
-				/>
 			</div>
 		</main>
 	);
