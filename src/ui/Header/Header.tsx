@@ -12,7 +12,6 @@ import CtaCallButton from "../CtaCallButton/CtaCallButton";
 
 export default function Header() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-	const [scrolled, setScrolled] = useState(false);
 	const [visible, setVisible] = useState(true);
 	const [lastScrollY, setLastScrollY] = useState(0);
 	const pathname = usePathname();
@@ -35,13 +34,6 @@ export default function Header() {
 	useEffect(() => {
 		const handleScroll = () => {
 			const currentScrollY = window.scrollY;
-			
-			// Determine if scrolled beyond threshold
-			if (currentScrollY > 20) {
-				setScrolled(true);
-			} else {
-				setScrolled(false);
-			}
 			
 			// Determine scroll direction and visibility
 			if (currentScrollY > lastScrollY) {
