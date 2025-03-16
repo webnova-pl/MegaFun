@@ -57,9 +57,6 @@ async function fetchGalleryData() {
 export default async function GalleryPage() {
 	const { images } = await fetchGalleryData();
 
-	console.log("Pobrano zdjęcia:", images.length);
-	console.log("Przykładowe zdjęcie:", images[0]);
-
 	return (
 		<main className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
 			<section className="rounded-container bg-primaryc pb-24 pt-48 text-white">

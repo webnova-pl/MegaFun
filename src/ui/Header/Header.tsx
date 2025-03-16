@@ -5,7 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Burger } from "../Burger/Burger";
-import { InstaIcon, FacebookIcon } from "@/ui/Icons/icons";
+import { FacebookIcon } from "@/ui/Icons/icons";
 import styles from "./Header.module.scss";
 import logo from "@public/monkey-head.svg";
 import CtaCallButton from "../CtaCallButton/CtaCallButton";
@@ -139,35 +139,35 @@ export default function Header() {
 						<div className="flex flex-col items-center space-y-6 py-6">
 							<Link
 								href={links.homePage}
-								className="hover:text-secondaryc block rounded-lg px-3 py-2 text-xl font-semibold leading-7 text-white text-center w-full"
+								className="hover:text-secondaryc block rounded-lg px-3 text-xl font-semibold leading-7 text-white text-center w-full"
 								onClick={handleOpenMenu}
 							>
 								Strona główna
 							</Link>
 							<Link
 								href={links.attractions}
-								className="hover:text-secondaryc block rounded-lg px-3 py-2 text-xl font-semibold leading-7 text-white text-center w-full"
+								className="hover:text-secondaryc block rounded-lg px-3 text-xl font-semibold leading-7 text-white text-center w-full"
 								onClick={handleOpenMenu}
 							>
 								Galeria
 							</Link>
 							<Link
 								href={links.attractions}
-								className="hover:text-secondaryc block rounded-lg px-3 py-2 text-xl font-semibold leading-7 text-white text-center w-full"
+								className="hover:text-secondaryc block rounded-lg px-3 text-xl font-semibold leading-7 text-white text-center w-full"
 								onClick={handleOpenMenu}
 							>
 								Atrakcje
 							</Link>
 							<Link
 								href={links.faq}
-								className="hover:text-secondaryc block rounded-lg px-3 py-2 text-xl font-semibold leading-7 text-white text-center w-full"
+								className="hover:text-secondaryc block rounded-lg px-3 text-xl font-semibold leading-7 text-white text-center w-full"
 								onClick={handleOpenMenu}
 							>
 								Częste pytania
 							</Link>
 							<Link
 								href={links.contact}
-								className="hover:text-secondaryc block rounded-lg px-3 py-2 text-xl font-semibold leading-7 text-white text-center w-full"
+								className="hover:text-secondaryc block rounded-lg px-3 text-xl font-semibold leading-7 text-white text-center w-full"
 								onClick={handleOpenMenu}
 							>
 								Kontakt
@@ -176,20 +176,13 @@ export default function Header() {
 						<div className="flex items-center justify-center py-8">
 							<CtaCallButton />
 						</div>
-						<div className={`${styles.icon_wr} flex items-center justify-center gap-8 py-6`}>
+						<div className={`${styles.icon_wr} flex items-center justify-center gap-8`}>
 							<Link
 								href={links.facebook}
 								target="_blank"
-								className="color-on-hover hover:text-secondaryc rounded-lg px-3 py-2 text-4xl"
+								className="color-on-hover text-white text-xl flex gap-4 hover:text-secondaryc rounded-lg px-3 py-2 text-4xl"
 							>
-								<FacebookIcon />
-							</Link>
-							<Link
-								href={links.instagram}
-								target="_blank"
-								className="color-on-hover hover:text-secondaryc rounded-lg px-3 py-2 text-4xl text-white"
-							>
-								<InstaIcon />
+								<FacebookIcon /> Bądź na bieżąco
 							</Link>
 						</div>
 					</div>
