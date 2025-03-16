@@ -12,10 +12,10 @@ const AttractionDescription = ({ description, price }: AttractionDescriptionProp
 		<div
 			className="flex h-fit max-w-[960px] flex-1 flex-col text-xl max-lg:px-6 lg:sticky lg:top-[80px]"
 		>
-			<div className="prose text-black [&_strong]:bg-transparent">
+			<div className="prose [&_strong]:bg-transparent">
 				<PortableText value={description} />
 			</div>
-			<div className="flex justify-between">
+			<div className="flex justify-center md:justify-between flex-wrap">
 				<div className="mt-10 inline-block text-2xl font-semibold text-primaryc">Już od {price} zł</div>
 				<div className="mt-10 flex">
 					<CtaCallButton className="animate-bounce rounded-lg bg-primaryc px-4 py-2 text-white" />
