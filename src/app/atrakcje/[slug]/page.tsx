@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { TypedObject } from "sanity";
 import { getSingleAttraction } from "@/lib/query";
@@ -6,6 +5,8 @@ import { client } from "@/lib/sanity";
 import AttractionDescription from "@/ui/AttractionDescription/AttractionDescription";
 import AttractionImages from "@/ui/AttractionImages/AttractionImages";
 import { urlForImage } from "@/lib/imageUrlBuilder";
+import { PageProps } from ".next/types/app/page";
+import { Metadata } from "next";
 
 export async function generateStaticParams() {
   const query = `*[_type == "attraction"]{ slug }`;
@@ -16,8 +17,10 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const attraction = await getSingleAttraction({ slug: params.slug });
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+
+  const attraction = await getSingleAttraction({ slug: slug });
   
   if (!attraction) {
     return {
@@ -25,10 +28,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       description: "Niestety, nie znaleźliśmy szukanej atrakcji.",
     };
   }
-  
-  const ogImageUrl = attraction.mainImage ? 
-    urlForImage(attraction.mainImage).width(1200).height(630).url() : 
-    "/og-image.jpg";
   
   return {
     title: `${attraction.name} | Wynajem dmuchańców | Mega Fun`,
@@ -48,33 +47,28 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     openGraph: {
       title: `${attraction.name} | Wynajem dmuchańców | Mega Fun`,
       description: attraction.shortDescription || `Wypożycz ${attraction.name} na imprezę dla dzieci. Najlepsza oferta w regionie.`,
-      images: [
-        {
-          url: ogImageUrl,
-          width: 1200,
-          height: 630,
-          alt: attraction.name,
-        },
-      ],
       type: "website",
       locale: "pl_PL",
     },
     alternates: {
-      canonical: `https://dmuchancemegafun.pl/atrakcje/${params.slug}`,
+      canonical: `https://dmuchancemegafun.pl/atrakcje/${slug}`,
     },
   };
 }
 
-const AttractionPage = async ({ params }: { params: { slug: string } }) => {
-  const attraction: {
-    name: string;
-    shortDescription: string;
-    description: TypedObject | TypedObject[];
-    price: string;
-    mainImage: { asset: { _ref: string; _type: string } };
-    gallery: { asset: { url: string; _id: string } }[];
-    _id: string;
-  } = await getSingleAttraction({ slug: params.slug });
+interface Attraction {
+  name: string;
+  shortDescription: string;
+  description: TypedObject | TypedObject[];
+  price: string;
+  mainImage: { asset: { _ref: string; _type: string } };
+  gallery: { asset: { url: string; _id: string } }[];
+  _id: string;
+}
+
+export default async function AttractionPage({ params }: PageProps) {
+  const { slug } = await params;
+  const attraction: Attraction = await getSingleAttraction({ slug: slug });
 
   if (!attraction) return notFound();
 
@@ -121,6 +115,4 @@ const AttractionPage = async ({ params }: { params: { slug: string } }) => {
       />
     </main>
   );
-};
-
-export default AttractionPage;
+}

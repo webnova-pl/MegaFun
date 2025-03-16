@@ -35,17 +35,6 @@ interface FAQ {
   
   // Define the components with proper types
   const ptComponents: Partial<PortableTextReactComponents> = {
-	  types: {
-		  image: ({ value }) => {
-			  return (
-				  <img
-					  className="my-8 max-w-full rounded-lg"
-					  src={value.imageUrl}
-					  alt={value.alt || "Zdjęcie FAQ"}
-				  />
-			  );
-		  },
-	  },
 	  marks: {
 		  link: ({ children, value }: PortableTextMarkComponentProps) => {
 			  const rel = !value?.href.startsWith("/") ? "noreferrer noopener" : undefined;
@@ -74,7 +63,7 @@ export default async function FAQPage() {
 
 	return (
 		<main className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-			<section className="rounded-container bg-primary pb-24 pt-48 text-white">
+			<section className="rounded-container bg-primaryc pb-24 pt-48 text-white">
 				<div className="container mx-auto px-4 text-center">
 					<h1 className="mb-4 text-4xl font-bold md:text-5xl">Często Zadawane Pytania</h1>
 					<p className="mx-auto max-w-3xl text-xl text-white/80">

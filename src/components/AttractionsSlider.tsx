@@ -10,12 +10,18 @@ type AttractionsSliderProps = {
   attractions: AttractionType[];
 };
 
+// Define proper type for custom arrow props
+type ArrowProps = {
+  className?: string;
+  onClick?: () => void;
+};
+
 const AttractionsSlider: React.FC<AttractionsSliderProps> = ({ attractions }) => {
+  // Fix the type to be more specific
   const sliderRef = useRef<Slider | null>(null);
 
-  // Custom arrow components for better styling
-  const PrevArrow = (props: any) => {
-    const { className, onClick } = props;
+  // Custom arrow components with proper typing
+  const PrevArrow = ({ className, onClick }: ArrowProps) => {
     return (
       <button
         className={`${className} z-10 before:text-gray-600 hover:before:text-gray-900 before:text-2xl`}
@@ -24,8 +30,7 @@ const AttractionsSlider: React.FC<AttractionsSliderProps> = ({ attractions }) =>
     );
   };
 
-  const NextArrow = (props: any) => {
-    const { className, onClick } = props;
+  const NextArrow = ({ className, onClick }: ArrowProps) => {
     return (
       <button
         className={`${className} z-10 before:text-gray-600 hover:before:text-gray-900 before:text-2xl`}
@@ -36,7 +41,7 @@ const AttractionsSlider: React.FC<AttractionsSliderProps> = ({ attractions }) =>
 
   const settings = {
     infinite: false,
-    speed: 1000, // Slightly reduced for smoother transitions
+    speed: 1000,
     slidesToShow: 3,
     autoplay: true,
     autoplaySpeed: 4000,
@@ -60,10 +65,9 @@ const AttractionsSlider: React.FC<AttractionsSliderProps> = ({ attractions }) =>
         },
       },
     ],
-    dotsClass: "slick-dots custom-dots", // Custom class for dots
+    dotsClass: "slick-dots custom-dots",
   };
 
-  // Pause autoplay when window is not in focus
   useEffect(() => {
     const handleVisibilityChange = () => {
       if (document.hidden && sliderRef.current) {
@@ -93,31 +97,32 @@ const AttractionsSlider: React.FC<AttractionsSliderProps> = ({ attractions }) =>
         ))}
       </Slider>
       
-      <style jsx global>{`
-        .custom-dots {
+      {/* Replace style jsx global with standard CSS modules or use a different approach */}
+      <style jsx>{`
+        :global(.custom-dots) {
           bottom: 15px;
         }
-        .custom-dots li {
+        :global(.custom-dots li) {
           margin: 0 3px;
         }
-        .custom-dots li button:before {
+        :global(.custom-dots li button:before) {
           font-size: 8px;
           color: #aaaaaaaa;
           opacity: 0.7;
         }
-        .custom-dots li.slick-active button:before {
+        :global(.custom-dots li.slick-active button:before) {
           color: #fff;
           opacity: 1;
         }
-        .slick-prev {
+        :global(.slick-prev) {
           left: 10px;
           z-index: 10;
-          transform:scale(2);
+          transform: scale(2);
         }
-        .slick-next {
+        :global(.slick-next) {
           right: 10px;
           z-index: 10;
-          transform:scale(2);
+          transform: scale(2);
         }
       `}</style>
     </div>
