@@ -8,6 +8,8 @@ import { urlForImage } from "@/lib/imageUrlBuilder";
 import { PageProps } from ".next/types/app/page";
 import { Metadata } from "next";
 
+export const revalidate = 120;
+
 export async function generateStaticParams() {
 	const query = `*[_type == "attraction"]{ slug }`;
 	const attractions = await client.fetch(query);
@@ -95,10 +97,7 @@ export default async function AttractionPage({ params }: PageProps) {
 				<div
 					className={`flex flex-col max-lg:space-y-10 ${!attraction.mainImage && (!attraction.gallery || attraction.gallery.length === 0) ? "w-full" : "md:flex-row lg:space-x-10"}`}
 				>
-					<AttractionDescription
-						description={attraction.description}
-						price={attraction.price}
-					/>
+					<AttractionDescription description={attraction.description} price={attraction.price} />
 
 					{(attraction.mainImage || (attraction.gallery && attraction.gallery.length > 0)) && (
 						<div className="flex-1 overflow-hidden lg:rounded-b-3xl">
