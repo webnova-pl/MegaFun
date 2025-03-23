@@ -12,22 +12,34 @@ import CtaCallButton from "../CtaCallButton/CtaCallButton";
 
 export default function Header() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+	const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
 	const [visible, setVisible] = useState(true);
 	const [lastScrollY, setLastScrollY] = useState(0);
 	const pathname = usePathname();
 
 	const handleOpenMenu = () => {
-		setMobileMenuOpen(!mobileMenuOpen);
-
 		if (!mobileMenuOpen) {
-			document.body.style.overflow = 'hidden';
+			// First make it visible in the DOM
+			setMobileMenuVisible(true);
+			// Then set it to open for the animation
+			setTimeout(() => {
+				setMobileMenuOpen(true);
+				document.body.style.overflow = 'hidden';
+			}, 10); // Small delay to ensure DOM has updated
 		} else {
+			// First close it with animation
+			setMobileMenuOpen(false);
 			document.body.style.overflow = 'auto';
+			// Then remove from DOM after animation completes
+			setTimeout(() => {
+				setMobileMenuVisible(false);
+			}, 300); // Match the duration in the CSS transition
 		}
 	};
 
 	useEffect(() => {
 		setMobileMenuOpen(false);
+		setMobileMenuVisible(false);
 		document.body.style.overflow = 'auto';
 	}, [pathname]);
 
@@ -74,14 +86,14 @@ export default function Header() {
 					<div className="flex w-96 justify-end space-x-8">
 						<Link
 							href={links.attractions}
-							className={`text-md  hover:scale-110 whitespace-nowrap font-semibold leading-6 tracking-wider text-white transition-all`}
+							className={`text-lg  hover:scale-110 whitespace-nowrap font-semibold leading-6 tracking-wider text-white transition-all`}
 						>
 							Atrakcje
 						</Link>
 
 						<Link
 							href={links.gallery}
-							className={`text-md  hover:scale-110 font-semibold leading-6 tracking-wider text-white transition-all`}
+							className={`text-lg  hover:scale-110 font-semibold leading-6 tracking-wider text-white transition-all`}
 						>
 							Galeria Zdjęć
 						</Link>
@@ -97,13 +109,13 @@ export default function Header() {
 					<div className="flex w-96 items-center justify-start space-x-8">
 						<Link
 							href={links.faq}
-							className={`text-md  hover:scale-110 font-semibold leading-6 tracking-wider text-white transition-all`}
+							className={`text-lg  hover:scale-110 font-semibold leading-6 tracking-wider text-white transition-all`}
 						>
 							Częste pytania
 						</Link>
 						<Link
 							href={links.contact}
-							className="shadow-on-hover hover:scale-110 text-md bg-secondaryc cursor-pointer whitespace-nowrap rounded-full px-4 py-2 font-semibold leading-6 tracking-wider text-white transition-all"
+							className="text-lg shadow-on-hover hover:scale-110  bg-secondaryc cursor-pointer whitespace-nowrap rounded-full px-4 py-2 font-semibold leading-6 tracking-wider text-white transition-all"
 						>
 							Kontakt
 						</Link>
@@ -111,80 +123,82 @@ export default function Header() {
 				</div>
 			</nav>
 
-			{/* Mobile menu */}
-			<div
-				className={`fixed inset-0 z-50 h-screen w-screen bg-primaryc overflow-y-auto transition-transform duration-300 ease-in-out lg:hidden ${
-					mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-				}`}
-			>
-				<div className="flex items-center justify-between p-4">
-					<Link href={links.homePage} className="p-4">
-						<Image src={logo} className="h-12 w-12" alt="logo" />
-					</Link>
-					<button 
-						onClick={handleOpenMenu}
-						className="p-4 text-white"
-						aria-label="Close menu"
-					>
-						<svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-						</svg>
-					</button>
-				</div>
-				<div className="mt-6 flex flex-col items-center justify-center pt-8">
-					<div className="divide-gray-200 w-full px-4">
-						<div className="flex flex-col items-center space-y-6 py-6">
-							<Link
-								href={links.homePage}
-								className="hover:text-secondaryc block rounded-lg px-3 text-xl font-semibold leading-7 text-white text-center w-full"
-								onClick={handleOpenMenu}
-							>
-								Strona główna
-							</Link>
-							<Link
-								href={links.attractions}
-								className="hover:text-secondaryc block rounded-lg px-3 text-xl font-semibold leading-7 text-white text-center w-full"
-								onClick={handleOpenMenu}
-							>
-								Galeria
-							</Link>
-							<Link
-								href={links.attractions}
-								className="hover:text-secondaryc block rounded-lg px-3 text-xl font-semibold leading-7 text-white text-center w-full"
-								onClick={handleOpenMenu}
-							>
-								Atrakcje
-							</Link>
-							<Link
-								href={links.faq}
-								className="hover:text-secondaryc block rounded-lg px-3 text-xl font-semibold leading-7 text-white text-center w-full"
-								onClick={handleOpenMenu}
-							>
-								Częste pytania
-							</Link>
-							<Link
-								href={links.contact}
-								className="hover:text-secondaryc block rounded-lg px-3 text-xl font-semibold leading-7 text-white text-center w-full"
-								onClick={handleOpenMenu}
-							>
-								Kontakt
-							</Link>
-						</div>
-						<div className="flex items-center justify-center py-8">
-							<CtaCallButton />
-						</div>
-						<div className={`${styles.icon_wr} flex items-center justify-center gap-8`}>
-							<Link
-								href={links.facebook}
-								target="_blank"
-								className="color-on-hover text-white text-xl flex gap-4 hover:text-secondaryc rounded-lg px-3 py-2 text-4xl"
-							>
-								<FacebookIcon /> Bądź na bieżąco
-							</Link>
+			{/* Mobile menu - conditionally render for performance, with animation */}
+			{mobileMenuVisible && (
+				<div
+					className={`fixed inset-0 z-50 h-screen w-screen bg-primaryc overflow-y-auto transition-transform duration-300 ease-in-out lg:hidden ${
+						mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+					}`}
+				>
+					<div className="flex items-center justify-between p-4">
+						<Link href={links.homePage} className="p-4">
+							<Image src={logo} className="h-12 w-12" alt="logo" />
+						</Link>
+						<button 
+							onClick={handleOpenMenu}
+							className="p-4 text-white"
+							aria-label="Close menu"
+						>
+							<svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+							</svg>
+						</button>
+					</div>
+					<div className="mt-6 flex flex-col items-center justify-center pt-8">
+						<div className="divide-gray-200 w-full px-4">
+							<div className="flex flex-col items-center space-y-6 py-6">
+								<Link
+									href={links.homePage}
+									className="block rounded-lg px-3 text-xl font-semibold leading-7 text-white text-center w-full"
+									onClick={handleOpenMenu}
+								>
+									Strona główna
+								</Link>
+								<Link
+									href={links.attractions}
+									className="block rounded-lg px-3 text-xl font-semibold leading-7 text-white text-center w-full"
+									onClick={handleOpenMenu}
+								>
+									Galeria
+								</Link>
+								<Link
+									href={links.attractions}
+									className="block rounded-lg px-3 text-xl font-semibold leading-7 text-white text-center w-full"
+									onClick={handleOpenMenu}
+								>
+									Atrakcje
+								</Link>
+								<Link
+									href={links.faq}
+									className="block rounded-lg px-3 text-xl font-semibold leading-7 text-white text-center w-full"
+									onClick={handleOpenMenu}
+								>
+									Częste pytania
+								</Link>
+								<Link
+									href={links.contact}
+									className="block rounded-lg px-3 text-xl font-semibold leading-7 text-white text-center w-full"
+									onClick={handleOpenMenu}
+								>
+									Kontakt
+								</Link>
+							</div>
+							<div className="flex items-center justify-center py-8">
+								<CtaCallButton />
+							</div>
+							<div className={`${styles.icon_wr} flex items-center justify-center gap-8`}>
+								<Link
+									href={links.facebook}
+									target="_blank"
+									className="color-on-hover text-white text-xl flex gap-4 rounded-lg px-3 py-2 text-4xl"
+								>
+									<FacebookIcon /> Bądź na bieżąco
+								</Link>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			)}
 		</header>
 	);
 }

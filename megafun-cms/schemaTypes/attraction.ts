@@ -83,6 +83,12 @@ export default {
       options: {hotspot: true},
     }),
     defineField({
+      name: 'order',
+      title: 'Kolejność wyświetlania',
+      type: 'number',
+      description: 'Mniejsza liczba = wyżej na liście'
+    }),
+    defineField({
       name: 'gallery',
       title: 'Gallery',
       type: 'array',

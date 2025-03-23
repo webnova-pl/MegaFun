@@ -19,17 +19,17 @@ const HeroSection: FC<IHeroSection> = ({ showButtons = true, showImg = true }) =
 		>
 			{showImg ? <HeroImg bigImg={showButtons} /> : ""}
 			<div
-				className={`absolute inset-0 mt-12 flex h-[85vh] w-screen flex-col items-center justify-center px-8
+				className={`absolute inset-0 mt-12 flex h-[85vh] w-screen flex-col items-center justify-center
 					
 					`}
 			>
-				<Image data-aos="fade-up" data-aos-delay="" src={HeroLogo} width={300} alt=""></Image>
+				<Image className="px-8" data-aos="fade-up" data-aos-delay="" src={HeroLogo} width={300} alt=""></Image>
 				<h1
 					data-aos="fade-up"
 					data-aos-delay="200"
-					className={`text-bold z-40 max-w-[96rem] mt-4 mb-4 text-center text-3xl lg:text-6xl font-semibold text-white tracking-[.5rem]`}
+					className={`text-bold z-40 max-w-[96rem] mt-4 mb-4 px-4 text-center text-[2rem] lg:text-6xl font-semibold text-white tracking-[.5rem]`}
 				>
-						Dmuchańce które <br /> rozkręcą każdą impreze
+						Dmuchańce które <br className="md:block hidden" /> rozkręcą każdą impreze
 				</h1>
 
 				{showButtons ? (

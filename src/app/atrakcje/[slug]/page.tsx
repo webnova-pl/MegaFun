@@ -78,7 +78,7 @@ export default async function AttractionPage({ params }: PageProps) {
 
 	return (
 		<main>
-			<section className="rounded-b-[5rem] bg-primaryc pb-40 pt-52">
+			<section className="rounded-container bg-primaryc pb-40 pt-52">
 				<div className="container mx-auto px-4">
 					<h1 className="text-center text-3xl font-bold text-white lg:text-5xl">
 						{attraction.name}
@@ -91,7 +91,7 @@ export default async function AttractionPage({ params }: PageProps) {
 				</div>
 			</section>
 
-			<section className="relative z-10 -mb-20 -mt-20 max-w-7xl rounded-[5rem] bg-white py-20 shadow-md lg:container max-lg:overflow-hidden max-lg:pb-0 md:pl-20">
+			<section className="relative z-10 -mb-20 -mt-20 max-w-7xl rounded-container bg-white py-20 shadow-md lg:container max-lg:overflow-hidden max-lg:pb-0 md:pl-20">
 				<div
 					className={`flex flex-col max-lg:space-y-10 ${!attraction.mainImage && (!attraction.gallery || attraction.gallery.length === 0) ? "w-full" : "md:flex-row lg:space-x-10"}`}
 				>

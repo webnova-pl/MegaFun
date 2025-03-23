@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import logo from "@public/white.png";
+import logo from "@public/white.webp";
 import { FacebookIcon, PhoneIcon } from "@/ui/Icons/icons";
 import CtaCallButton from "@/ui/CtaCallButton/CtaCallButton";
 import { links } from "@/constants";

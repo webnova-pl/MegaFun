@@ -4,4 +4,5 @@ export default interface Attraction {
 	mainImage: string;
     link: string;
     price?: string;
+    order?: number;
 }

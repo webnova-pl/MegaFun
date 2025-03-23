@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useMemo } from "react";
 import Slider from "react-slick";
 import AttractionCard from "./AttractionCard";
 import { AttractionType } from "@/types";
@@ -10,20 +10,28 @@ type AttractionsSliderProps = {
   attractions: AttractionType[];
 };
 
-// Define proper type for custom arrow props
 type ArrowProps = {
   className?: string;
   onClick?: () => void;
 };
 
 const AttractionsSlider: React.FC<AttractionsSliderProps> = ({ attractions }) => {
-  // Fix the type to be more specific
+
   const sliderRef = useRef<Slider | null>(null);
+
+  const sortedAttractions = useMemo(() => {
+    return [...attractions].sort((a, b) => {
+      const orderA = typeof a.order === 'number' ? a.order : Infinity;
+      const orderB = typeof b.order === 'number' ? b.order : Infinity;
+      return orderA - orderB;
+    });
+  }, [attractions]);
 
   // Custom arrow components with proper typing
   const PrevArrow = ({ className, onClick }: ArrowProps) => {
     return (
       <button
+        aria-label="Przewiń w lewo"
         className={`${className} z-10 before:text-gray-600 hover:before:text-gray-900 before:text-2xl`}
         onClick={onClick}
       />
@@ -33,6 +41,7 @@ const AttractionsSlider: React.FC<AttractionsSliderProps> = ({ attractions }) =>
   const NextArrow = ({ className, onClick }: ArrowProps) => {
     return (
       <button
+        aria-label="Przewiń w prawo"
         className={`${className} z-10 before:text-gray-600 hover:before:text-gray-900 before:text-2xl`}
         onClick={onClick}
       />
@@ -90,14 +99,13 @@ const AttractionsSlider: React.FC<AttractionsSliderProps> = ({ attractions }) =>
         {...settings}
         className="cursor-pointer py-16 [&_.slick-track]:flex [&_.slick-track]:gap-4"
       >
-        {attractions.map((attraction, idx) => (
+        {sortedAttractions.map((attraction, idx) => (
           <div key={`${idx}-${attraction.id}`} className="px-2">
             <AttractionCard attraction={attraction} />
           </div>
         ))}
       </Slider>
       
-      {/* Replace style jsx global with standard CSS modules or use a different approach */}
       <style jsx>{`
         :global(.custom-dots) {
           bottom: 15px;

@@ -74,7 +74,7 @@ const RentSection = () => {
 							<ul className="ml-5 list-disc py-4">
 								<li>Przemyśl</li>
 								<li>Jarosław</li>
-								<li>Dubieckp</li>
+								<li>Dubiecko</li>
 								<li>Arłamów</li>
 								<li>Dynów</li>
 								<li>Bircza</li>

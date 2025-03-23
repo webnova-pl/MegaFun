@@ -42,7 +42,7 @@ export default defineType({
           {title: 'Baseny', value: 'baseny'},
           {title: 'Tory przeszkód', value: 'tory'},
           {title: 'Z imprez', value: 'imprezy'},
-          {title: 'Pozostałe', value: 'atrakcje'}
+          {title: 'Pozostałe', value: 'pozostałe'}
         ]
       }
     }),

@@ -73,7 +73,7 @@ const AboutSection = () => {
 								data-aos="fade-up"
 								data-aos-delay={idx * 100}
 							>
-								<h4 className="mb-4 flex space-x-2 text-lg font-bold xl:text-2xl">{item.title}</h4>
+								<h3 className="mb-4 flex space-x-2 text-lg font-bold xl:text-2xl">{item.title}</h3>
 								<p className="text-base text-gray group-hover:text-white">{item.desc}</p>
 							</div>
 						))}

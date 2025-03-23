@@ -6,4 +6,5 @@ export type AttractionType = {
 	price: string;
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	mainImage: any;
+	order: number;
 };
