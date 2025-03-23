@@ -53,38 +53,57 @@ const OfferSection = async () => {
 					/>
 				</div>
 				<div className="mt-16 flex flex-wrap items-center justify-center gap-16 text-center text-2xl font-semibold lg:mt-4">
-					<div className="flex flex-col items-center justify-center">
+					<Link
+						href="/atrakcje/wynajem-maszyny-do-waty-cukrowej"
+						className="flex flex-col items-center justify-center transition-transform hover:scale-110"
+					>
 						<div className="animate-bounceSlow">
 							<CandyIcon />
 						</div>
 						Maszynę do waty cukrowej
-					</div>
-					<div className="flex flex-col items-center justify-center">
+					</Link>
+
+					<Link
+						href="/atrakcje/wynajem-maszyny-do-popcornu"
+						className="flex flex-col items-center justify-center transition-transform hover:scale-110"
+					>
 						<div className="animate-bounceSlow">
 							<PopcornIcon />
 						</div>
 						Maszynę do popcornu
-					</div>
-					<div className="flex flex-col items-center justify-center">
+					</Link>
+
+					<Link
+						href="/atrakcje/wynajem-wytwornicy-do-baniek-mydlanych"
+						className="flex flex-col items-center justify-center transition-transform hover:scale-110"
+					>
 						<div className="animate-bounceSlow">
 							<BubbleIcon />
 						</div>
 						Wytwornicę baniek mydlanych
-					</div>
+					</Link>
 				</div>
+
 				<div className="mt-16 flex flex-wrap items-center justify-center gap-16 text-center text-2xl font-semibold">
-					<div className="flex flex-col items-center justify-center">
+					<Link
+						href="/atrakcje/wynajem-profesjonalnego-naglosnienia-jbl-eon712-ze-statywem"
+						className="flex flex-col items-center justify-center transition-transform hover:scale-110"
+					>
 						<div className="animate-bounceSlow">
 							<SpeakerIcon />
 						</div>
 						Systemy nagłośnienia
-					</div>
-					<div className="flex flex-col items-center justify-center">
+					</Link>
+
+					<Link
+						href="/atrakcje/wynajem-strojow"
+						className="flex flex-col items-center justify-center transition-transform hover:scale-110"
+					>
 						<div className="animate-bounceSlow">
 							<CostumeIcone />
 						</div>
 						Kostiumy do przebrania
-					</div>
+					</Link>
 				</div>
 
 				<ul className="mt-8 flex items-center justify-center gap-16 text-2xl font-semibold"></ul>

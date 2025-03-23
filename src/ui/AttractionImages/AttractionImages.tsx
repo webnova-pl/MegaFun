@@ -14,15 +14,17 @@ const AttractionImages = (props: AttractionImagesProps) => {
 	return (
 		<div>
 			<PhotoProvider>
-				<PhotoView src={urlFor(props.mainImage).url()}>
-					<Image
-						alt=""
-						width={1000}
-						height={1000}
-						src={urlFor(props.mainImage).url()}
-						className="cursor-zoom-in"
-					/>
-				</PhotoView>
+				{props.mainImage && (
+					<PhotoView src={urlFor(props.mainImage).url()}>
+						<Image
+							alt="Atrakcja do wynającia podkarpacie"
+							width={1000}
+							height={1000}
+							src={urlFor(props.mainImage).url()}
+							className="cursor-zoom-in"
+						/>
+					</PhotoView>
+				)}
 				{props.images?.map((item) => (
 					<PhotoView src={urlFor(item.asset.url).url()} key={item.asset._id}>
 						<Image

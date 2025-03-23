@@ -2,8 +2,10 @@ import { links } from "@/constants";
 import Link from "next/link";
 import { FC } from "react";
 import HeroImg from "./elements/HeroImg";
+import HeroLogo from "@public/logo_hero2.png";
 import ArrowButton from "@/ui/Buttons/ArrowButton";
 import Ballons from "@/components/Ballons";
+import Image from "next/image";
 
 interface IHeroSection {
 	showButtons?: boolean;
@@ -17,33 +19,40 @@ const HeroSection: FC<IHeroSection> = ({ showButtons = true, showImg = true }) =
 		>
 			{showImg ? <HeroImg bigImg={showButtons} /> : ""}
 			<div
-				className={`absolute inset-0 flex h-[85vh] w-screen flex-col items-center justify-center px-8`}
+				className={`absolute inset-0 mt-12 flex h-[85vh] w-screen flex-col items-center justify-center px-8
+					
+					`}
 			>
+				<Image data-aos="fade-up" data-aos-delay="" src={HeroLogo} width={300} alt=""></Image>
 				<h1
 					data-aos="fade-up"
-					className={`text-bold z-40 text-center text-5xl font-bold text-white lg:text-7xl lg:tracking-wide`}
+					data-aos-delay="200"
+					className={`text-bold z-40 max-w-[96rem] mt-4 mb-4 text-center text-3xl lg:text-6xl font-semibold text-white tracking-[.5rem]`}
 				>
-					MEGA FUN <br />{" "}
-					<span data-aos="fade-up" data-aos-delay="300" className="text-2xl lg:text-4xl">
-						{" "}
-						Dmuchańce które rozkręcą każdą impreze
-					</span>
+						Dmuchańce które <br /> rozkręcą każdą impreze
 				</h1>
 
-					{showButtons ? (
-						<div className="z-40 mt-8 flex items-center justify-center flex-wrap md:text-xl gap-4 text-white lg:flex-row">
-							<Link data-aos="fade-up" data-aos-delay="400" href={links.gallery}>Galeria zdjęć</Link>
-							<Link data-aos="fade-up" data-aos-delay="600" className=" lg:ml-12 lg:mt-0" href={links.attractions}>
-								<ArrowButton>Zobacz oferte</ArrowButton>
-							</Link>
-						</div>
-					) : (
-						""
-					)}
-				</div>
-				<Ballons className="absolute bottom-0 left-0 w-full lg:w-2/5"></Ballons>
-				<Ballons className="absolute bottom-0 right-0 max-lg:hidden lg:w-2/5"></Ballons>
-			</section>
+				{showButtons ? (
+					<div className="z-40 mt-8 flex flex-wrap items-center justify-center gap-4 text-white md:text-xl lg:flex-row">
+						<Link data-aos="fade-up" data-aos-delay="400" href={links.gallery}>
+							Galeria zdjęć
+						</Link>
+						<Link
+							data-aos="fade-up"
+							data-aos-delay="600"
+							className="lg:ml-12 lg:mt-0"
+							href={links.attractions}
+						>
+							<ArrowButton>Zobacz oferte</ArrowButton>
+						</Link>
+					</div>
+				) : (
+					""
+				)}
+			</div>
+			<Ballons className="absolute bottom-0 left-0 w-full lg:w-2/5"></Ballons>
+			<Ballons className="absolute bottom-0 right-0 max-lg:hidden lg:w-2/5"></Ballons>
+		</section>
 	);
 };
 

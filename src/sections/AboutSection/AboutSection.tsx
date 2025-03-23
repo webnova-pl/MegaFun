@@ -1,6 +1,6 @@
 import Image from "next/image";
 import img1 from "../../../public/wedding.webp";
-import logo from "@public/logo-color.webp";
+import logo from "@public/dmuchaniec.png";
 
 import NumbersCounter from "../../components/NumbersCounter";
 
@@ -51,10 +51,10 @@ const AboutSection = () => {
 						<NumbersCounter />
 					</div>
 					<Image
-						alt="Logo Mega Fun"
+						alt="Dmuchana zdjeżdżalnia"
 						src={logo}
-						width={500}
-						height={500}
+						width={600}
+						height={600}
 						className="object-cover object-center drop-shadow-2xl"
 					/>
 				</div>

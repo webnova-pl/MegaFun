@@ -13,13 +13,8 @@ const NumbersCounter = () => {
 				className="grid grid-cols-1 gap-8 md:gap-20 text-4xl md:grid-cols-2 lg:grid-cols-3 [&_p]:text-left [&_p]:text-lg"
 				ref={ref}
 			>
-				<div className="flex flex-col items-start justify-center">
-					<span className="text-primaryc">
-						{isInView ? <CountUp end={5} duration={3} delay={0.5} /> : 0} 
-					</span>
-					<p>Lat doświadczenia</p>
-				</div>
-				<div className="flex flex-col items-start justify-center">
+
+				<div className="flex flex-col items-start justify-center ">
 					<span className="text-primaryc">
 						{isInView ? <CountUp end={10} className="" duration={3} delay={0.5} /> : 0} +
 					</span>
@@ -27,9 +22,15 @@ const NumbersCounter = () => {
 				</div>
 				<div className="flex flex-col items-start justify-start">
 					<span className="text-primaryc">
-						{isInView ? <CountUp end={100} duration={3} delay={0.5} /> : 0} +
+						{isInView ? <CountUp end={150} duration={3} delay={0.5} /> : 0} +
 					</span>
 					<p>Obsłużonych wydarzeń</p>
+				</div>
+				<div className="flex flex-col items-start justify-center">
+					<span className="text-primaryc">
+						{isInView ? <CountUp end={100} duration={3} delay={0.5} /> : 0} %
+					</span>
+					<p>Zadowolonych klientów</p>
 				</div>
 			</div>
 		</div>

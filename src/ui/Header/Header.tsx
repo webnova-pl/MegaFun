@@ -18,7 +18,7 @@ export default function Header() {
 
 	const handleOpenMenu = () => {
 		setMobileMenuOpen(!mobileMenuOpen);
-		// Prevent scrolling when mobile menu is open
+
 		if (!mobileMenuOpen) {
 			document.body.style.overflow = 'hidden';
 		} else {
@@ -35,12 +35,9 @@ export default function Header() {
 		const handleScroll = () => {
 			const currentScrollY = window.scrollY;
 			
-			// Determine scroll direction and visibility
 			if (currentScrollY > lastScrollY) {
-				// Scrolling down
 				setVisible(false);
 			} else {
-				// Scrolling up
 				setVisible(true);
 			}
 			

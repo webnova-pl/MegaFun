@@ -3,6 +3,7 @@ import kdrimg from "../../../public/kdr.webp";
 import React from "react";
 import Image from "next/image";
 import Map from "@public/map.svg";
+import Link from "next/link";
 
 const RentSection = () => {
 	return (
@@ -16,7 +17,11 @@ const RentSection = () => {
 					<p className="mt-10 max-w-[540px] text-xl text-gray">
 						Nasze zjeżdżalnie są wykonane z wysokiej jakości materiałów, spełniających normy
 						bezpieczeństwa. Dbamy o to, aby każda atrakcja była w pełni bezpieczna dla dzieci,
-						dlatego wszystkie z nich posiadają atest.
+						dlatego wszystkie z nich posiadają atest. Dodatkowo każda atrakcja posiada certyfikat UE
+						oraz pełną dokumentację techniczno-ruchową dla urządzeń rekreacyjnych, a także
+						orzeczenie techniczne potwierdzające sprawność urządzenia. Nasza firma posiada również
+						ubezpieczenie w postaci polisy OC, co gwarantuje pełne bezpieczeństwo i niezawodność
+						naszych atrakcji.
 					</p>
 				</div>
 				<div className="flex flex-1 items-center justify-end">
@@ -64,47 +69,55 @@ const RentSection = () => {
 								Działamy na terenie całego województwa podkarpackiego, a jeśli znajdujesz się w
 								promieniu 30 km od naszej lokalizacji, dowieziemy do ciebie atrakcje
 								<span className="ml-2 bg-primaryc px-2 font-bold text-white">ZA DARMO!</span> <br />
-								Więc jeżeli jesteś z okolic:
+								Więc jeżeli jesteś z którejś z tych miejscowości lub ich okolic:
 							</p>
 							<ul className="ml-5 list-disc py-4">
-								<li>Przemyśla</li>
-								<li>Jarosławia</li>
-								<li>Dubiecka</li>
-								<li>Arłamowa</li>
+								<li>Przemyśl</li>
+								<li>Jarosław</li>
+								<li>Dubieckp</li>
+								<li>Arłamów</li>
+								<li>Dynów</li>
+								<li>Bircza</li>
 							</ul>
-							<p>za dostawę nie poniesiesz żadnych kosztów.</p>
+							<p className="text-xl">za dostawę nie poniesiesz żadnych kosztów.</p>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div data-aos="fade-zoom-up" data-aos-offset="200">
 				<h3 className="relative z-10 pt-12 text-center text-primaryc">
-					<strong>Prosty Wynajem</strong>
+					<strong>Jak wygląda proces wynajmu?</strong>
 				</h3>
+				<p className="max-w-[50rem] text-center mt-8 mx-auto">Wszystko jest bardzo proste, wystarczy że zapoznasz się z klikoma punktami poniżej. W razie wątpliwości <Link href="#kontakt" className="underline hover:text-primaryc transition-all">odezwij się do nas</Link>.</p>
 				<div className="mt-10 grid grid-cols-1 grid-rows-2 gap-5 lg:grid-cols-3">
 					<div className="order-1 flex items-center lg:justify-end">
-						<div className="justify-center rounded-[48px] px-6 py-10 shadow-2xl transition-all hover:scale-[1.05] lg:max-w-[300px]">
-							<h4 className="text-center text-2xl font-bold text-primaryc">Wybierz atrakcje</h4>
+						<div className="justify-center rounded-[48px] px-6 py-10 shadow-2xl transition-all hover:scale-[1.05]">
+							<h4 className="text-center text-3xl font-bold text-primaryc">Wybierz swoją atrakcję</h4>
 							<p className="font-semi mt-6 text-center text-gray">
-								Przeglądnij naszą oferte i wybierz atrakcje która najbardziej odpowiada twoim
-								potrzebom
+								Przeglądnij naszą ofertę i wybierz atrakcję, która najbardziej odpowiada Twoim
+								potrzebom. Oferujemy pełen zakres usług, obejmujący dostarczenie atrakcji, montaż
+								oraz instruktaż korzystania.
 							</p>
 						</div>
 					</div>
 					<div className="order-2 flex items-center justify-center lg:order-5">
-						<div className="w-full justify-center rounded-[48px] px-6 py-10 shadow-2xl transition-all hover:scale-[1.05] lg:max-w-[270px]">
-							<h4 className="text-center text-2xl font-bold text-primaryc">Zadzwoń</h4>
+						<div className="w-full justify-center rounded-[48px] px-6 py-10 shadow-2xl transition-all hover:scale-[1.05]">
+							<h4 className="text-center text-3xl font-bold text-primaryc">Zadzwoń</h4>
 							<p className="font-semi mt-6 text-center text-gray">
-								Zapytaj o dostepność w danym terminie i zarezerwuj
+								Zapytaj o dostępność w danym terminie i zarezerwuj. Podpisanie umowy najmu odbywa
+								się na miejscu w dniu realizacji usługi. Pobieramy zadatek w wysokości 100 zł lub
+								25% wartości zamówienia.
 							</p>
 						</div>
 					</div>
 					<div className="order-3 flex items-center justify-center">
-						<div className="justify-center rounded-[48px] bg-primaryc px-6 py-10 transition-all hover:scale-[1.05] lg:max-w-[412px]">
-							<h4 className="text-center text-2xl font-bold text-white">Baw się dobrze</h4>
+						<div className="justify-center rounded-[48px] bg-primaryc px-6 py-10 transition-all hover:scale-[1.05]">
+							<h4 className="text-center text-3xl font-bold text-white">Baw się dobrze</h4>
 							<p className="font-semi mt-6 text-center text-white">
 								W wybranym dniu dostarczymy dmuchańca pod Twoje drzwi, zamontujemy go, a po
-								wszystkim przyjedziemy, aby go zdemontować i odebrać.
+								wszystkim przyjedziemy, aby go zdemontować i odebrać. Jeśli wynajmujesz atrakcję bez
+								opiekuna, przeprowadzimy instruktaż użytkowania. Na koniec dokonamy rozliczenia za
+								usługę i odbierzemy sprzęt.
 							</p>
 						</div>
 					</div>

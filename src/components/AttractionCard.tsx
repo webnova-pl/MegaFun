@@ -4,14 +4,22 @@ import { AttractionType } from "@/types";
 import ArrowButtonLink from "@/ui/Buttons/ArrowButtonLink";
 
 const AttractionCard: React.FC<{ attraction: AttractionType }> = ({ attraction }) => {
+	// Return null if attraction or attraction.name is null/undefined
+	if (!attraction || !attraction.name) {
+		return null;
+	}
+
+	// Handle background image based on whether mainImage exists
+	const backgroundImageStyle = attraction.mainImage
+		? {
+				backgroundImage: `linear-gradient(#202020cc,#30303000 40%,#30303000 70%, #202020cc), url(${urlFor(attraction.mainImage).url()})`,
+		  }
+		: { backgroundColor: "#f74444" }; // Fallback background color when image is null
+
 	return (
 		<div
 			className="relative md:h-[40rem] h-[30rem] hover:scale-95 transition-all py-4 overflow-hidden rounded-[2rem] border-4 bg-cover bg-center p-4 shadow-md"
-			style={{
-				backgroundImage: attraction.name
-					? `linear-gradient(#202020cc,#30303000 40%,#30303000 70%, #202020cc), url(${urlFor(attraction.mainImage).url()})`
-					: "none",
-			}}
+			style={backgroundImageStyle}
 		>
 			<div className="flex h-full flex-col justify-between">
 				<div className="rounded-md p-4">
