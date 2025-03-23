@@ -3,6 +3,8 @@ import { getAttraction } from "@/lib/query";
 import { AttractionType } from "@/types";
 import { Metadata } from "next";
 
+export const revalidate = 120;
+
 export const metadata: Metadata = {
 	title: "Oferta",
 	description:

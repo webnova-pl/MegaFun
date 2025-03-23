@@ -2,8 +2,14 @@
 import { Metadata } from "next";
 import { groq } from "next-sanity";
 import { client } from "@/lib/sanity";
-import { PortableText, PortableTextMarkComponentProps, PortableTextReactComponents } from "@portabletext/react";
+import {
+	PortableText,
+	PortableTextMarkComponentProps,
+	PortableTextReactComponents,
+} from "@portabletext/react";
 import { TypedObject } from "sanity";
+
+export const revalidate = 120;
 
 // Define proper types for our FAQ data
 interface FAQ {
@@ -11,42 +17,42 @@ interface FAQ {
 	question: string;
 	answer: TypedObject | TypedObject[];
 	order: number;
-  }
-  
-  export const metadata: Metadata = {
-	  title: "Często Zadawane Pytania (FAQ) | Dmuchańce Mega Fun",
-	  description:
-		  "Znajdź odpowiedzi na najczęściej zadawane pytania dotyczące wynajmu dmuchańców, zamków i zjeżdżalni na imprezy dla dzieci i wydarzenia firmowe.",
-	  keywords:
-		  "dmuchańce faq, wynajem dmuchańców, zamki dmuchane, dmuchane zjeżdżalnie, imprezy dla dzieci, pytania o dmuchańce",
-	  alternates: {
-		  canonical: "https://dmuchancemegafun.pl/faq",
-	  },
-	  openGraph: {
-		  title: "Często Zadawane Pytania (FAQ) | Dmuchańce na Imprezy",
-		  description:
-			  "Znajdź odpowiedzi na najczęściej zadawane pytania dotyczące wynajmu dmuchańców, zamków i zjeżdżalni na imprezy dla dzieci i wydarzenia firmowe.",
-		  url: "https://dmuchancemegafun.pl/faq",
-		  siteName: "Dmuchańce na Imprezy",
-		  locale: "pl_PL",
-		  type: "website",
-	  },
-  };
-  
-  // Define the components with proper types
-  const ptComponents: Partial<PortableTextReactComponents> = {
-	  marks: {
-		  link: ({ children, value }: PortableTextMarkComponentProps) => {
-			  const rel = !value?.href.startsWith("/") ? "noreferrer noopener" : undefined;
-			  return (
-				  <a href={value?.href} rel={rel} className="underline">
-					  {children}
-				  </a>
-			  );
-		  },
-	  },
-  };
-  
+}
+
+export const metadata: Metadata = {
+	title: "Często Zadawane Pytania (FAQ) | Dmuchańce Mega Fun",
+	description:
+		"Znajdź odpowiedzi na najczęściej zadawane pytania dotyczące wynajmu dmuchańców, zamków i zjeżdżalni na imprezy dla dzieci i wydarzenia firmowe.",
+	keywords:
+		"dmuchańce faq, wynajem dmuchańców, zamki dmuchane, dmuchane zjeżdżalnie, imprezy dla dzieci, pytania o dmuchańce",
+	alternates: {
+		canonical: "https://dmuchancemegafun.pl/faq",
+	},
+	openGraph: {
+		title: "Często Zadawane Pytania (FAQ) | Dmuchańce na Imprezy",
+		description:
+			"Znajdź odpowiedzi na najczęściej zadawane pytania dotyczące wynajmu dmuchańców, zamków i zjeżdżalni na imprezy dla dzieci i wydarzenia firmowe.",
+		url: "https://dmuchancemegafun.pl/faq",
+		siteName: "Dmuchańce na Imprezy",
+		locale: "pl_PL",
+		type: "website",
+	},
+};
+
+// Define the components with proper types
+const ptComponents: Partial<PortableTextReactComponents> = {
+	marks: {
+		link: ({ children, value }: PortableTextMarkComponentProps) => {
+			const rel = !value?.href.startsWith("/") ? "noreferrer noopener" : undefined;
+			return (
+				<a href={value?.href} rel={rel} className="underline">
+					{children}
+				</a>
+			);
+		},
+	},
+};
+
 async function getFAQs(): Promise<FAQ[]> {
 	return client.fetch(
 		groq`*[_type == "faq"] | order(order asc) {

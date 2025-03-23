@@ -4,6 +4,8 @@ import { groq } from "next-sanity";
 import { client } from "@/lib/sanity";
 import GalleryClient from "@/components/Gallery";
 
+export const revalidate = 120;
+
 // Metadata dla SEO
 export const metadata: Metadata = {
 	title: "Galeria Zdjęć Dmuchańców | Dmuchańce na Imprezy",
@@ -67,7 +69,7 @@ export default async function GalleryPage() {
 			</section>
 			<div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
 				{/* Komponent kliencki dla interaktywnej galerii */}
-				<GalleryClient images={images}/>
+				<GalleryClient images={images} />
 
 				{/* Schema.org structured data for ImageGallery */}
 				<script
