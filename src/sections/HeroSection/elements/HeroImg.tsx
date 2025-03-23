@@ -6,7 +6,7 @@ interface IHeroImg {
   bigImg?: boolean;
 }
 
-const HeroImg: FC<IHeroImg> = ({ bigImg }) => {
+const HeroImg: FC<IHeroImg> = () => {
   return (
     <div className="relative w-full h-[90vh] overflow-hidden">
       <Image
