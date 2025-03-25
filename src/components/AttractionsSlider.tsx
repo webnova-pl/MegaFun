@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect, useMemo } from "react";
+import { useRef, useEffect } from "react";
 import Slider from "react-slick";
 import AttractionCard from "./AttractionCard";
 import { AttractionType } from "@/types";
@@ -16,16 +16,7 @@ type ArrowProps = {
 };
 
 const AttractionsSlider: React.FC<AttractionsSliderProps> = ({ attractions }) => {
-
   const sliderRef = useRef<Slider | null>(null);
-
-  const sortedAttractions = useMemo(() => {
-    return [...attractions].sort((a, b) => {
-      const orderA = typeof a.order === 'number' ? a.order : Infinity;
-      const orderB = typeof b.order === 'number' ? b.order : Infinity;
-      return orderA - orderB;
-    });
-  }, [attractions]);
 
   // Custom arrow components with proper typing
   const PrevArrow = ({ className, onClick }: ArrowProps) => {
@@ -99,7 +90,7 @@ const AttractionsSlider: React.FC<AttractionsSliderProps> = ({ attractions }) =>
         {...settings}
         className="cursor-pointer py-16 [&_.slick-track]:flex [&_.slick-track]:gap-4"
       >
-        {sortedAttractions.map((attraction, idx) => (
+        {attractions.map((attraction, idx) => (
           <div key={`${idx}-${attraction.id}`} className="px-2">
             <AttractionCard attraction={attraction} />
           </div>

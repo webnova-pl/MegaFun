@@ -155,7 +155,7 @@ export default function Header() {
 									Strona główna
 								</Link>
 								<Link
-									href={links.attractions}
+									href={links.gallery}
 									className="block rounded-lg px-3 text-xl font-semibold leading-7 text-white text-center w-full"
 									onClick={handleOpenMenu}
 								>

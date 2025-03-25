@@ -29,7 +29,7 @@ const HeroSection: FC<IHeroSection> = ({ showButtons = true, showImg = true }) =
 					data-aos-delay="200"
 					className={`text-bold z-40 max-w-[96rem] mt-4 mb-4 px-4 text-center text-[2rem] lg:text-6xl font-semibold text-white tracking-[.5rem]`}
 				>
-						Dmuchańce które <br className="md:block hidden" /> rozkręcą każdą impreze
+						Dmuchańce które <br className="md:block hidden" /> rozkręcą każdą imprezę
 				</h1>
 
 				{showButtons ? (

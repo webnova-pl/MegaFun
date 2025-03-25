@@ -1,7 +1,7 @@
 import { client } from "./sanity";
 
 export async function getAttraction(params?: { slug: string }) {
-	const query = `*[_type == "attraction"]{
+	const query = `*[_type == "attraction"] | order(order asc, name asc) {
             _id,
             name,
             slug,
@@ -38,7 +38,8 @@ export async function getSingleAttraction(params: { slug: string }) {
 
 
 export async function getMainPageAttractions() {
-	const query = `*[_type == "attraction" && showOnMainPage == true]{
+	// Also updated this query to include sorting
+	const query = `*[_type == "attraction" && showOnMainPage == true] | order(order asc, name asc) {
             _id,
             name,
             slug,
