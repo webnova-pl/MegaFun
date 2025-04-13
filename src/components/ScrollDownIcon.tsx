@@ -5,8 +5,8 @@ import styled from 'styled-components';
 
 interface ScrollDownProps {
   color?: string;
-  sizeX?: number;
-  sizeY?: number;
+  sizex?: number;
+  sizey?: number;
   onClick?: () => void;
 }
 
