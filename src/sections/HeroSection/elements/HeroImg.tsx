@@ -8,7 +8,7 @@ interface IHeroImg {
 
 const HeroImg: FC<IHeroImg> = () => {
   return (
-    <div className="relative w-full h-[90vh] overflow-hidden">
+    <div className="relative w-full h-[85vh] md:h-[90vh] overflow-hidden">
       <Image
         alt="Dmuchane zjeżdżalnie"
         src={heroImg}

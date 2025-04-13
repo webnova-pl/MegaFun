@@ -110,9 +110,10 @@ const AttractionsSlider: React.FC<AttractionsSliderProps> = ({ attractions }) =>
 					opacity: 0.7;
 				}
 				:global(.custom-dots li.slick-active button:before) {
-					color: #fff;
+					color: #ffffff !important;
 					opacity: 1;
 				}
+
 				:global(.slick-prev) {
 					left: 10px;
 					z-index: 10;

@@ -6,6 +6,7 @@ import HeroLogo from "@public/logo_hero2.png";
 import ArrowButton from "@/ui/Buttons/ArrowButton";
 import Ballons from "@/components/Ballons";
 import Image from "next/image";
+import ScrollDown from '../../components/ScrollDownIcon';
 
 interface IHeroSection {
 	showButtons?: boolean;
@@ -19,10 +20,10 @@ const HeroSection: FC<IHeroSection> = ({ showButtons = true, showImg = true }) =
 		>
 			{showImg ? <HeroImg bigImg={showButtons} /> : ""}
 			<div
-				className={`absolute inset-0 mt-12 flex h-[85vh] w-screen flex-col items-center justify-center`}
+				className={`absolute inset-0 mt-12 flex h-[85vh] md:h-[90vh] w-screen flex-col items-center justify-center`}
 			>
 				<Image
-					className="px-8"
+					className="px-8 md:px-0"
 					data-aos="fade-up"
 					data-aos-delay=""
 					src={HeroLogo}
@@ -32,13 +33,13 @@ const HeroSection: FC<IHeroSection> = ({ showButtons = true, showImg = true }) =
 				<h1
 					data-aos="fade-up"
 					data-aos-delay="200"
-					className={`text-bold z-40 mb-4 mt-4 max-w-[96rem] px-4 text-center text-[2rem] font-semibold text-white lg:text-6xl lg:tracking-[.5rem]`}
+					className={`text-bold z-40 mb-4 mt-4 max-w-[96rem] px-4 text-center text-[1.7rem] font-semibold text-white lg:text-6xl lg:tracking-[.5rem]`}
 				>
 					Dmuchańce które <br className="hidden md:block" /> rozkręcą każdą imprezę
 				</h1>
 
 				{showButtons ? (
-					<div className="z-40 mt-8 flex flex-wrap items-center justify-center gap-4 text-white md:text-xl lg:flex-row">
+					<div className="z-40 md:mt-8 flex flex-wrap items-center justify-center gap-4 text-white md:text-xl lg:flex-row">
 						<Link data-aos="fade-up" data-aos-delay="400" href={links.gallery}>
 							Galeria zdjęć
 						</Link>
@@ -54,9 +55,13 @@ const HeroSection: FC<IHeroSection> = ({ showButtons = true, showImg = true }) =
 				) : (
 					""
 				)}
+				<div className="absolute bottom-16" data-aos="fade-up" data-aos-delay="500">
+				<ScrollDown></ScrollDown>
+				</div>
 			</div>
 			<Ballons className="absolute bottom-0 left-0 w-full lg:w-2/5"></Ballons>
 			<Ballons className="absolute bottom-0 right-0 max-lg:hidden lg:w-2/5"></Ballons>
+
 		</section>
 	);
 };

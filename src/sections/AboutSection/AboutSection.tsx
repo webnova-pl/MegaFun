@@ -33,11 +33,11 @@ const items = [
 
 const AboutSection = () => {
 	return (
-		<section className="py-16 md:py-32 bg-contain bg-no-repeat z-30 bg-[url('/decoration.svg')] md:pt-48 ">
+		<section className="py-16 pt-8 md:py-32 bg-contain bg-no-repeat z-30 bg-[url('/decoration.svg')] md:pt-48 ">
 			<div className="container flex flex-col items-center">
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
 					<div className="item mt-8 flex max-w-[35rem] flex-col text-xl md:py-16">
-						<h2 className="text mb-4 text-left text-4xl leading-[3.5rem]" data-aos="fade-up">
+						<h2 className="text mb-4 text-left text-4xl leading-[3.5rem]" >
 							 O Nas
 						</h2>
 						<p className="text-xl" data-aos="fade-up">

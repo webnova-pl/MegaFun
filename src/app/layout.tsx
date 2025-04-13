@@ -42,9 +42,9 @@ export const metadata: Metadata = {
 	creator: "Mega Fun",
 	publisher: "Mega Fun",
 	formatDetection: {
-		email: false,
-		address: false,
-		telephone: false,
+		email: true,
+		address: true,
+		telephone: true,
 	},
 	robots: {
 		index: true,
@@ -57,25 +57,16 @@ export const metadata: Metadata = {
 		siteName: "Dmuchańce Mega Fun",
 		title: "Dmuchańce Mega Fun | Profesjonalny wynajem dmuchańców",
 		description:
-			"Wynajem dmuchańców i atrakcji dla dzieci na imprezy, pikniki i urodziny w Przemyślu, Jarosławiu, Arłamowie, Dubiecku, Ruszeczycach, Krzywczy i okolicach. Oferujemy dmuchane zamki, zjeżdżalnie i inne atrakcje.",
-		images: [
-			{
-				url: "/og-image.jpg",
-				width: 1200,
-				height: 630,
-				alt: "Dmuchańce Mega Fun",
-			},
-		],
+			"Wynajem dmuchańców i atrakcji dla dzieci na imprezy, pikniki i urodziny w Przemyślu, Jarosławiu, Arłamowie, Dubiecku, Ruszeczycach, Krzywczy i okolicach. Oferujemy dmuchane zamki, zjeżdżalnie i inne atrakcje."
 	},
 	twitter: {
 		card: "summary_large_image",
 		title: "Dmuchańce Mega Fun | Profesjonalny wynajem dmuchańców",
 		description:
 			"Wynajem dmuchańców i atrakcji dla dzieci na imprezy, pikniki i urodziny w Przemyślu, Jarosławiu, Arłamowie, Dubiecku i okolicach.",
-		images: ["/og-image.jpg"],
 	},
 	alternates: {
-		canonical: "https://dmuchancemegafun.pl /",
+		canonical: "https://dmuchancemegafun.pl",
 	},
 	viewport: {
 		width: "device-width",
