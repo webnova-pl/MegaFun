@@ -1,6 +1,5 @@
 import { FirstArrow, SaveOrderIcon, SecondArrow } from "@/ui/Icons/icons";
 import kdrimg from "../../../public/kdr.webp";
-import React from "react";
 import Image from "next/image";
 import Map from "@public/map.svg";
 import Link from "next/link";

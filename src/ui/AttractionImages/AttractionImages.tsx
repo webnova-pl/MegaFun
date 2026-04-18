@@ -1,6 +1,6 @@
 "use client";
 import { PhotoProvider, PhotoView } from "react-photo-view";
-import React from "react";
+
 import Image from "next/image";
 import "react-photo-view/dist/react-photo-view.css";
 import { urlFor } from "@/lib/sanity";

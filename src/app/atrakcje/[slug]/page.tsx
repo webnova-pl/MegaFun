@@ -4,7 +4,7 @@ import { getSingleAttraction } from "@/lib/query";
 import { client } from "@/lib/sanity";
 import AttractionDescription from "@/ui/AttractionDescription/AttractionDescription";
 import { urlForImage } from "@/lib/imageUrlBuilder";
-import { PageProps } from ".next/types/app/page";
+type PageProps = { params: Promise<{ slug: string }> };
 import { Metadata } from "next";
 import AttractionMediaSlider from "@/components/AttractionMediaSlider";
 
