@@ -86,13 +86,25 @@ export default {
       name: 'order',
       title: 'Kolejność wyświetlania',
       type: 'number',
-      description: 'Mniejsza liczba = wyżej na liście'
+      description: 'Mniejsza liczba = wyżej na liście',
     }),
     defineField({
       name: 'gallery',
       title: 'Gallery',
       type: 'array',
-      of: [{type: 'image', options: {hotspot: true}}],
+      of: [
+        {
+          type: 'image',
+          options: {hotspot: true},
+        },
+        {
+          type: 'file',
+          title: 'Video',
+          options: {
+            accept: 'video/mp4,video/webm,video/quicktime',
+          },
+        },
+      ],
     }),
   ],
 }

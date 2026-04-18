@@ -19,7 +19,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sanity": "^3.74.1",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "yet-another-react-lightbox": "^3.29.1"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^5.0.1",

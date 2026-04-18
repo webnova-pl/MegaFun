@@ -32,25 +32,35 @@ export type GalleryImage = {
 	_id: string;
 	title?: string;
 	description?: string;
-	photo: {
-		_ref: string;
-		url?: string;
+	photo?: {
+		asset: { _ref: string; _type: string };
 	};
 	alt?: string;
 	category?: string;
+	mediaType?: "image" | "video";
+	video?: {
+		asset: { url: string };
+	};
+	videoPoster?: {
+		asset: { _ref: string; _type: string };
+	};
 };
 
 // Funkcja do pobierania danych z Sanity
 async function fetchGalleryData() {
-	// Pobierz wszystkie zdjęcia galerii, z użyciem pola photo zamiast asset
 	const galleryImages = await client.fetch(
 		groq`*[_type == "galleryImage"] | order(order asc) {
-      _id,
-      title,
-      description,
-      category,
-      alt,
-	  photo,
+			_id,
+			title,
+			description,
+			category,
+			alt,
+			mediaType,
+			photo,
+			video {
+				asset-> { url }
+			},
+			videoPoster
 		}`,
 	);
 	return { images: galleryImages };
@@ -83,10 +93,10 @@ export default async function GalleryPage() {
 								"Galeria dmuchańców, zamków i zjeżdżalni dostępnych do wynajęcia na imprezy dziecięce, urodziny i pikniki.",
 							publisher: {
 								"@type": "Organization",
-								name: "Dmuchańce na Imprezy",
+								name: "Dmuchańce Mega Fun",
 								logo: {
 									"@type": "ImageObject",
-									url: "https://twojadomena.pl/logo.png",
+									url: "https://www.dmuchancemegafun.pl/_next/static/media/monkey-head.30751513.svg",
 								},
 							},
 						}),

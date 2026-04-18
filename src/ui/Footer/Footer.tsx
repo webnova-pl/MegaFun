@@ -20,8 +20,18 @@ const Footer = () => {
 			</div>
 			<div className="container flex py-4 max-md:justify-center">
 				Projekt i realizacja:{" "}
-				<a href="https://www.web-nova.pl/" className="ml-2 underline">
-					Web nova
+				<a
+					href="https://www.linkedin.com/in/dawid-s%C5%82owik-343847233/"
+					className="ml-2 underline"
+				>
+					Dawid Słowik
+				</a>
+				i
+				<a
+					href="https://www.linkedin.com/in/%C5%82ukasz-jasi%C5%84ski-171a78249/"
+					className="ml-2 underline"
+				>
+					Łukasz Jasiński
 				</a>
 			</div>
 		</footer>
