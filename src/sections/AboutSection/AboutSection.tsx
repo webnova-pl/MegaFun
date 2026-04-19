@@ -38,6 +38,7 @@ async function fetchHomepageGallery(): Promise<HomepageGalleryItem[]> {
       _id,
       title,
       alt,
+      order,
       mediaType,
       photo,
       videoPoster,

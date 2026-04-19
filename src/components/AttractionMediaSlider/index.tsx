@@ -17,7 +17,10 @@ export default function AttractionMediaSlider(
 ) {
   const mediaItems: MediaItem[] = useMemo(() => {
     if (props.items !== undefined) {
-      const raw = props.items.flatMap((item, i): MediaItem[] => {
+      const sorted = [...props.items].sort(
+        (a, b) => (a.order ?? Infinity) - (b.order ?? Infinity),
+      );
+      const raw = sorted.flatMap((item, i): MediaItem[] => {
         if (item.mediaType === "video" && item.video?.asset?.url) {
           return [
             {
@@ -238,12 +241,12 @@ export default function AttractionMediaSlider(
 
             {total > 1 && (
               <>
-                <button onClick={prev} aria-label="Poprzednie" className="absolute left-3 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 shadow-lg opacity-0 transition-all duration-300 hover:scale-110 active:scale-95 group-hover:opacity-100">
+                <button onClick={prev} aria-label="Poprzednie" className="absolute left-3 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 shadow-lg transition-all duration-300 hover:scale-110 active:scale-95">
                   <svg className="h-5 w-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
                   </svg>
                 </button>
-                <button onClick={next} aria-label="Następne" className="absolute right-3 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 shadow-lg opacity-0 transition-all duration-300 hover:scale-110 active:scale-95 group-hover:opacity-100">
+                <button onClick={next} aria-label="Następne" className="absolute right-3 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 shadow-lg transition-all duration-300 hover:scale-110 active:scale-95">
                   <svg className="h-5 w-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                   </svg>

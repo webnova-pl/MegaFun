@@ -15,6 +15,7 @@ export interface HomepageGalleryItem {
   _id: string;
   title?: string;
   alt?: string;
+  order?: number;
   mediaType?: "image" | "video";
   photo?: { asset: { _ref: string; _type: string } };
   video?: { asset: { url: string } };
